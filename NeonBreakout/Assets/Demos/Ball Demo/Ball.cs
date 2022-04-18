@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Ball : MonoBehaviour
 {
@@ -8,12 +10,13 @@ public class Ball : MonoBehaviour
     private Vector3 startingVelocity = new Vector3(100,100 ,0);
     private Vector3 lastVelocity;
     public GameObject KillBox;
-
+    
     public void LaunchBall() 
     {
         //Subscribed to the launch input in the Input Manager
             //Change the transform of the ball based on new velocity
         //triggered by clicking start button
+        RandomizeLaunchVelocity();
         ball.GetComponent<Rigidbody2D>().AddForce(startingVelocity);
     }
     
@@ -66,7 +69,7 @@ public class Ball : MonoBehaviour
         ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
     
-    public void ResetBall()
+    private void ResetBall()
     {
         ball.transform.position = new Vector3(0, 0 ,0);
     }
@@ -86,6 +89,36 @@ public class Ball : MonoBehaviour
     //{
        // Sends event that the brick that was hit must be destroyed/hidden
    // }
-    
 
+    private void RandomizeLaunchVelocity()
+    {
+        bool xDirectionBool = RandomizeXDirection();
+        float xDirection;
+        if (xDirectionBool)
+        {
+            xDirection = 1;
+        }
+        else
+        {
+            xDirection = -1;
+        }
+        float xVelocity = xDirection*200 - xDirection*Random.value*175;
+        float yVelocity = 200;
+        Vector3 randomVelocity = new Vector3(xVelocity ,yVelocity);
+        startingVelocity = randomVelocity;
+    }
+
+    private bool RandomizeXDirection()
+    {
+        if (Random.value > .5)
+        {
+            //positive direction
+            return true;
+        }
+        else
+        {
+            //negative direction
+            return false;
+        }
+    }
 }
