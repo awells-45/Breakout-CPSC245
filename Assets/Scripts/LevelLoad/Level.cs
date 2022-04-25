@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿//Created by Ian Reafsnyder and Lucas Torti
+//Purpose: Stores information about a level to be loaded. Is a Scriptable Object, which allows us to save it in the Unity editor Assets
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -6,7 +9,5 @@ using UnityEngine.Audio;
 
 public class Level : ScriptableObject
 {
-    private int numBricks;
-    // public List<int> intList = new List<int>();
     public List<BlueprintBrick> bricks = new List<BlueprintBrick>();
 }

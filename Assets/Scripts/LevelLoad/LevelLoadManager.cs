@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Created by Ian Reafsnyder and Lucas Torti
+//Overall purpose: Contains a list of levels and loads the levels when the previous level has been completed.
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
