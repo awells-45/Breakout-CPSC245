@@ -1152,3 +1152,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftWall: {fileID: 14782868}
   rightWall: {fileID: 1272589544}
+  moveAmount: 0.05

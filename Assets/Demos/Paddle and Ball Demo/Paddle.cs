@@ -5,6 +5,7 @@ public class Paddle : MonoBehaviour
     public GameObject leftWall;
     public GameObject rightWall;
     //public GameManager gameManager;
+    public float moveAmount;
 
     public void OnLeftPress() {
         //if (gameManager.getState() == alive)???
@@ -13,7 +14,7 @@ public class Paddle : MonoBehaviour
             var paddleLeftEdge = this.transform.position.x - (this.GetComponent<Collider2D>().bounds.size.x / 2);
             var wallRightEdge = leftWall.transform.position.x + (leftWall.GetComponent<Collider2D>().bounds.size.x / 2);
             if (paddleLeftEdge > wallRightEdge) 
-                this.transform.position += Vector3.left * 0.1f;
+                this.transform.position += Vector3.left * moveAmount;
         }
     }
 
@@ -24,7 +25,7 @@ public class Paddle : MonoBehaviour
             var paddleRightEdge = this.transform.position.x + (this.GetComponent<Collider2D>().bounds.size.x / 2);
             var wallLeftEdge = rightWall.transform.position.x - (rightWall.GetComponent<Collider2D>().bounds.size.x / 2);
             if (paddleRightEdge < wallLeftEdge)
-                this.transform.position += Vector3.right * 0.1f;
+                this.transform.position += Vector3.right * moveAmount;
         }
     }
 
