@@ -18,6 +18,6 @@ public class Main : MonoBehaviour
 
     public void OnButtonClick()
     {
-        objectPool.PlaceBricks(brickPositions, brickImages);
+        //objectPool.PlaceBricks(brickPositions, brickImages);
     }
 }

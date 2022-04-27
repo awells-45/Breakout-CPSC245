@@ -12,8 +12,8 @@ public class BlueprintBrick
 {
     //The brick's location
     public Vector2 brickTransform;
-    //Brick's color
-    public Color color;
+    //Brick's sprite
+    public Sprite brickSprite;
 
     public Vector2 GetTransform()
     {
@@ -21,9 +21,9 @@ public class BlueprintBrick
         return newVector;
     }
 
-    public Color GetColor()
+    public Sprite GetSprite()
     {
-        return color;
+        return brickSprite;
     }
 
 }
