@@ -29,7 +29,7 @@ public class Paddle : MonoBehaviour
         }
     }
 
-    public void OnGameReset() { // This needs to be triggered by an event
-        //this.transform.position.x = 0;
+    public void ResetPaddle() { // This needs to be triggered by an event
+        this.transform.position = new Vector3(0, 0, 0);
     }
 }
