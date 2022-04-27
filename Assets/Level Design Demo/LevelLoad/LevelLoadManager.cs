@@ -14,6 +14,12 @@ public class LevelLoadManager : MonoBehaviour
     public int activeBricks = 0;
     public Level[] levels;
     public int currentLevel = 0;
+    public ObjectPool objectPool;
+
+    private void Awake()
+    {
+        objectPool = ObjectPool.sharedInstance;
+    }
 
     public void Start()
     {
@@ -25,17 +31,18 @@ public class LevelLoadManager : MonoBehaviour
     {
         Level level = levels[currentLevel];
         currentLevel += 1;
-        foreach (BlueprintBrick brick in level.bricks)
-        {
-            AddBrick(brick);
-        }
+        //foreach (BlueprintBrick brick in level.bricks)
+        //{
+         //   AddBrick(brick);
+        //}
+        objectPool.PlaceBricks(getBrickLocations(level), getBrickSprites(level));
         activeBricks = level.bricks.Count;
     }
 
     public static void AddBrick(BlueprintBrick brick)
     {
         // use the function contained in the bricks script to place the bricks
-        Debug.Log(brick.brickTransform + " " + brick.color);
+        Debug.Log(brick.brickTransform + " " + brick.brickSprite);
     }
 
     public void DecrementActiveBricks()
@@ -46,4 +53,27 @@ public class LevelLoadManager : MonoBehaviour
             LoadLevel();
         }
     }
+
+     private List<Vector2> getBrickLocations(Level nextLevel)
+     { 
+         List<Vector2> brickPositions = new List<Vector2>();
+        foreach (BlueprintBrick brick in nextLevel.bricks)
+        {
+            brickPositions.Add(brick.GetTransform());
+        }
+
+        return brickPositions;
+     }
+     
+     private List<Sprite> getBrickSprites(Level nextLevel)
+     { 
+         List<Sprite> brickSprites = new List<Sprite>();
+         foreach (BlueprintBrick brick in nextLevel.bricks)
+         {
+             brickSprites.Add(brick.GetSprite());
+         }
+
+         return brickSprites;
+     }
+     
 }

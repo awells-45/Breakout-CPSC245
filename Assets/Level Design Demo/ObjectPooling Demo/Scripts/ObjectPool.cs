@@ -56,9 +56,9 @@ public class ObjectPool : MonoBehaviour
         return null;
     }
 
-    public void PlaceBricks(List<Transform> positions, List<Sprite> images)
+    public void PlaceBricks(List<Vector2> positions, List<Sprite> images)
     {
-        print("placing level 1 bricks");
+        print("placing level bricks");
         for (int i = 0; i < positions.Count; ++i)
         {
             objectToPlace = GetPooledObject();

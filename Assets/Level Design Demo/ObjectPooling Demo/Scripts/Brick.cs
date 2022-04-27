@@ -38,16 +38,16 @@ public class Brick : MonoBehaviour
     }
 
     // sets up the brick for the level given position and sprite
-    public void SetBrick(Transform location, Sprite newImage)
+    public void SetBrick(Vector2 location, Sprite newImage)
     {
         SetBrickLocation(location);
         SetBrickSprite(newImage);
     }
     
     // places the brick to its correct position in the level given the transform position
-    private void SetBrickLocation(Transform location)
+    private void SetBrickLocation(Vector2 location)
     {
-        gameObject.transform.position = location.position;
+        gameObject.transform.position = location;
         ShowBrick();
     }
 
