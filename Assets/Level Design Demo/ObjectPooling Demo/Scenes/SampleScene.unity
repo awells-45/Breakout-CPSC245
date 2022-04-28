@@ -363,10 +363,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 222119675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 641279cb07a4644809c7788ef2d1acce, type: 3}
+  m_Script: {fileID: 11500000, guid: a76fe60e1bbd6264abc8a3225baf5366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfActiveBricks: 10
+  activeBricks: 0
+  levels: []
+  currentLevel: 0
+  objectPool: {fileID: 0}
 --- !u!4 &222119677
 Transform:
   m_ObjectHideFlags: 0
@@ -396,7 +399,7 @@ MonoBehaviour:
   pooledBricks: []
   objectToPool: {fileID: 1053507646699402394, guid: 613dd8b1b3b9945b69e111e39b57bb70, type: 3}
   objectToPlace: {fileID: 0}
-  amountToPool: 5
+  amountToPool: 40
   amountActive: 0
 --- !u!114 &222119679
 MonoBehaviour:
@@ -767,7 +770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPool: {fileID: 0}
-  numberInLevel: 5
+  numberInLevel: 40
   brickPositions:
   - {fileID: 858431263}
   - {fileID: 1661957490}
@@ -1038,9 +1041,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 963194229}
-        m_TargetAssemblyTypeName: Main, Assembly-CSharp
-        m_MethodName: OnButtonClick
+      - m_Target: {fileID: 222119676}
+        m_TargetAssemblyTypeName: LevelLoadManager, Assembly-CSharp
+        m_MethodName: LoadLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1351,7 +1354,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LoadBricks
+  m_Text: LoadLevel
 --- !u!222 &2029834852
 CanvasRenderer:
   m_ObjectHideFlags: 0
