@@ -18,7 +18,7 @@ public class LevelLoadManager : MonoBehaviour
 
     private void Awake()
     {
-        objectPool = ObjectPool.sharedInstance;
+        // objectPool = ObjectPool.sharedInstance;
     }
 
     public void Start()
@@ -29,12 +29,14 @@ public class LevelLoadManager : MonoBehaviour
 
     public void LoadLevel()
     {
+        Debug.Log(currentLevel);
         Level level = levels[currentLevel];
         currentLevel += 1;
         //foreach (BlueprintBrick brick in level.bricks)
         //{
-         //   AddBrick(brick);
+        //   AddBrick(brick);
         //}
+        Debug.Log(objectPool);
         objectPool.PlaceBricks(getBrickLocations(level), getBrickSprites(level));
         activeBricks = level.bricks.Count;
     }
@@ -54,26 +56,26 @@ public class LevelLoadManager : MonoBehaviour
         }
     }
 
-     private List<Vector2> getBrickLocations(Level nextLevel)
-     { 
-         List<Vector2> brickPositions = new List<Vector2>();
+    private List<Vector2> getBrickLocations(Level nextLevel)
+    {
+        List<Vector2> brickPositions = new List<Vector2>();
         foreach (BlueprintBrick brick in nextLevel.bricks)
         {
             brickPositions.Add(brick.GetTransform());
         }
 
         return brickPositions;
-     }
-     
-     private List<Sprite> getBrickSprites(Level nextLevel)
-     { 
-         List<Sprite> brickSprites = new List<Sprite>();
-         foreach (BlueprintBrick brick in nextLevel.bricks)
-         {
-             brickSprites.Add(brick.GetSprite());
-         }
+    }
 
-         return brickSprites;
-     }
-     
+    private List<Sprite> getBrickSprites(Level nextLevel)
+    {
+        List<Sprite> brickSprites = new List<Sprite>();
+        foreach (BlueprintBrick brick in nextLevel.bricks)
+        {
+            brickSprites.Add(brick.GetSprite());
+        }
+
+        return brickSprites;
+    }
+
 }
