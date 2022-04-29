@@ -31,10 +31,19 @@ public class LevelLoadManager : MonoBehaviour
     // Once above code is added, "yourFunctionHere" will be called every time the "OnLevelCompleted" event occurs
 
     public int activeBricks = 0;
+    public int numToPool;
     public Level[] levels;
     public int currentLevel = 0;
     public ObjectPool objectPool;
 
+    // creates the object pool and sets the amount of bricks needed to pool
+    private void Awake()
+    {
+        objectPool = FindObjectOfType<ObjectPool>();
+        objectPool.amountToPool = numToPool;
+    }
+    
+    
     // Loads the current level, then adds 1 to currentLevel to load the next level next time
     public void LoadLevel()
     {

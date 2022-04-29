@@ -43,7 +43,7 @@ public class ObjectPool : MonoBehaviour
             temp = Instantiate(objectToPool); // instantiate a new brick
             temp.gameObject.SetActive(false); // set it to inactive
             pooledBricks.Add(temp); // add to the object pool 
-            print("made brick: " + (i + 1));
+            //print("made brick: " + (i + 1));
         }
     }
 

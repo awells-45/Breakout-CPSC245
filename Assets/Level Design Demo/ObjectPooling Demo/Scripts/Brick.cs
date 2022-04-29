@@ -1,4 +1,12 @@
-using System;
+/* a. Ian Reafsnyder, Lucas Torti, and Natalie Huante
+ * b. 2337621, 2351555, 2374481
+ * c. ireafsnyder@chapman.edu, torti@chapman.edu, huante@chapman.edu
+ * d. CPSC 245-01
+ * e. Brick buster class project
+ *
+ * Contains all methods and data relevant to an individual brick
+ */
+
 using UnityEngine;
 
 public class Brick : MonoBehaviour
@@ -9,6 +17,7 @@ public class Brick : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private ObjectPool objectPool;
 
+    // assigns objects when the brick is created by the object pool 
     private void Awake()
     {
         brick = this.gameObject;
@@ -17,13 +26,15 @@ public class Brick : MonoBehaviour
         objectPool = FindObjectOfType<ObjectPool>();
     }
 
-    // called when the ball hits the brick, sets the brick inactive
+    // when brick is collided with by ball, brick is set to inactive and the number of active bricks is updated
     public void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Ball"))
+        if (col.gameObject.CompareTag("Ball")) // if the collision is with the ball
         {
             // set the brick to inactive
             HideBrick();
+            
+            // update the number of active bricks
             //levelLoadManager.DecrementActiveBricks();
             objectPool.amountActive--;
         }
