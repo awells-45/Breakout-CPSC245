@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Brick : MonoBehaviour
@@ -16,15 +17,18 @@ public class Brick : MonoBehaviour
         objectPool = FindObjectOfType<ObjectPool>();
     }
 
-    // called when the brick is hit by the ball
-    public void OnHit()
+    // called when the ball hits the brick, sets the brick inactive
+    public void OnCollisionEnter2D(Collision2D col)
     {
-        // set the brick to inactive
-        HideBrick();
-        //levelLoadManager.DecrementActiveBricks();
-        objectPool.amountActive--;
+        if (col.gameObject.CompareTag("Ball"))
+        {
+            // set the brick to inactive
+            HideBrick();
+            //levelLoadManager.DecrementActiveBricks();
+            objectPool.amountActive--;
+        }
     }
-    
+
     // sets the brick to active in the scene
     public void ShowBrick()
     {

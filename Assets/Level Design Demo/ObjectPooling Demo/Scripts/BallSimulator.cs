@@ -3,9 +3,7 @@ using UnityEngine;
 public class BallSimulator : MonoBehaviour
 {
     private Brick brickToHit;
-
-
-
+    
     private Brick chooseRandomBrick()
     {
         // chooses a random number within the amount of bricks currently active in the scene
@@ -45,7 +43,7 @@ public class BallSimulator : MonoBehaviour
         else
         {
             brickToHit = chooseRandomBrick();
-            brickToHit.OnHit();
+            //brickToHit.OnHit();
         }
         
     }
