@@ -23,8 +23,8 @@ public class Brick : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        levelLoadManager = FindObjectOfType<LevelLoadManager>();
-        objectPool = FindObjectOfType<ObjectPool>();
+        levelLoadManager = LevelLoadManager.sharedInstance;
+        objectPool = ObjectPool.sharedInstance;
     }
 
     // when brick is collided with by ball, brick is set to inactive and the number of active bricks is updated

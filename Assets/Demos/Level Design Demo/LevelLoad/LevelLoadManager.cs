@@ -20,7 +20,7 @@ using UnityEngine.Audio;
 public class LevelLoadManager : MonoBehaviour
 {
     //https://www.youtube.com/watch?v=CPKAgyp8cno&t=660s
-    public static LevelLoadManager instance;
+    public static LevelLoadManager sharedInstance;
 
 
     //Create Unity event
@@ -39,7 +39,7 @@ public class LevelLoadManager : MonoBehaviour
     // creates the object pool and sets the amount of bricks needed to pool
     private void Awake()
     {
-        objectPool = FindObjectOfType<ObjectPool>();
+        objectPool = ObjectPool.sharedInstance;
         objectPool.amountToPool = numToPool;
     }
     
