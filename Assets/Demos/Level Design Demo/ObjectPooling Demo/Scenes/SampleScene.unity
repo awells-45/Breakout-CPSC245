@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -154,9 +154,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeBricks: 0
-  numToPool: 40
+  numToPool: 100
   levels:
-  - {fileID: 11400000, guid: f85581c9f63c424499a48b1d041a56b3, type: 2}
+  - {fileID: 11400000, guid: fee5dcd78f1f30047aceea84e0ad3630, type: 2}
   currentLevel: 0
   objectPool: {fileID: 222119678}
 --- !u!4 &222119677
@@ -171,7 +171,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &222119678
 MonoBehaviour:
@@ -188,7 +188,7 @@ MonoBehaviour:
   pooledBricks: []
   objectToPool: {fileID: 1053507646699402394, guid: 613dd8b1b3b9945b69e111e39b57bb70, type: 3}
   objectToPlace: {fileID: 0}
-  amountToPool: 40
+  amountToPool: 100
   amountActive: 0
 --- !u!1 &504287126
 GameObject:
@@ -284,7 +284,7 @@ RectTransform:
   - {fileID: 1524619204}
   - {fileID: 1762912675}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -324,7 +324,7 @@ Transform:
   - {fileID: 2038333179}
   - {fileID: 1090599264}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -626,7 +626,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1293911776
 GameObject:
@@ -1122,7 +1122,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1794011227
 GameObject:
@@ -1263,64 +1263,3 @@ Transform:
   m_Father: {fileID: 543804423}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1053507646124561786
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1053507646699402392, guid: 613dd8b1b3b9945b69e111e39b57bb70, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053507646699402392, guid: 613dd8b1b3b9945b69e111e39b57bb70, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053507646699402392, guid: 613dd8b1b3b9945b69e111e39b57bb70, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053507646699402392, guid: 613dd8b1b3b9945b69e111e39b57bb70, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053507646699402392, guid: 613dd8b1b3b9945b69e111e39b57bb70, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053507646699402392, guid: 613dd8b1b3b9945b69e111e39b57bb70, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053507646699402392, guid: 613dd8b1b3b9945b69e111e39b57bb70, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053507646699402392, guid: 613dd8b1b3b9945b69e111e39b57bb70, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053507646699402392, guid: 613dd8b1b3b9945b69e111e39b57bb70, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053507646699402392, guid: 613dd8b1b3b9945b69e111e39b57bb70, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053507646699402392, guid: 613dd8b1b3b9945b69e111e39b57bb70, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053507646699402405, guid: 613dd8b1b3b9945b69e111e39b57bb70, type: 3}
-      propertyPath: m_Name
-      value: brickBlue
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053507646699402405, guid: 613dd8b1b3b9945b69e111e39b57bb70, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 613dd8b1b3b9945b69e111e39b57bb70, type: 3}
