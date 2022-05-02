@@ -9,9 +9,9 @@ public class UserInput : MonoBehaviour
     public UnityEvent OnDownInput;
     public UnityEvent OnLeftInput;
     public UnityEvent OnRightInput;
-    public UnityEvent OnEscapeInput;
+    public UnityEvent OnPauseInput;
     public UnityEvent OnEnterInput;
-    public UnityEvent OnSpaceInput;
+    public UnityEvent OnLaunchInput;
 
     private void Update()
     {
@@ -21,11 +21,11 @@ public class UserInput : MonoBehaviour
     private void GetUserInput()
     {
         if (Input.GetKeyDown(KeyCode.Space))
-            OnSpaceInput.Invoke();
+            OnLaunchInput.Invoke();
         if (Input.GetKeyDown(KeyCode.KeypadEnter))
             OnEnterInput.Invoke();
         if (Input.GetKeyDown(KeyCode.Escape))
-            OnEscapeInput.Invoke();
+            OnPauseInput.Invoke();
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             OnUpInput.Invoke();
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))

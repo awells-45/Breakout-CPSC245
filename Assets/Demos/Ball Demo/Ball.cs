@@ -1,25 +1,31 @@
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class Ball : MonoBehaviour
 {
     public GameObject ball;
     private Vector3 startingVelocity = new Vector3(100,100 ,0);
-    private Vector3 lastVelocity;
+    private Vector3 lastVelocity = new Vector3(0,0 ,0);
     public GameObject KillBox;
     
-    public void LaunchBall() 
+    public UnityEvent LostLife;
+    public UnityEvent IncrementPoints;
+    public UnityEvent LaunchingBall;
+
+    public void LaunchBall() //Subscribed to EnterPlayingState GameManager event
     {
-        //Subscribed to the launch input in the Input Manager
-            //Change the transform of the ball based on new velocity
-        //triggered by clicking start button
-        RandomizeLaunchVelocity();
-        ball.GetComponent<Rigidbody2D>().AddForce(startingVelocity);
+        // Checking that lastVelocity == 0 to ensure that the game is not being unpaused
+        if ((lastVelocity.x == 0) && (lastVelocity.y == 0))
+        {
+            RandomizeLaunchVelocity();
+            ball.GetComponent<Rigidbody2D>().AddForce(startingVelocity); //Change the transform of the ball based on new velocity
+            LaunchingBall.Invoke();
+        }
     }
     
-    public void PauseBall()
+    public void PauseBall() // //Subscribed to EnterPauseState GameManager event
     {
-        //Subscribed to pause input in the Input Manager
         GetLastVelocity();
         StopBall();
     }
@@ -29,9 +35,13 @@ public class Ball : MonoBehaviour
         lastVelocity = ball.GetComponent<Rigidbody2D>().velocity;
     }
 
-    public void UnpauseBall()
+    public void UnpauseBall() //Subscribed to EnterPlayingState GameManager event
     {
-        ball.GetComponent<Rigidbody2D>().velocity = lastVelocity;
+        // Checking that lastVelocity != 0 to ensure that the game is not being started
+        if ((lastVelocity.x != 0) || (lastVelocity.y != 0))
+        {
+            ball.GetComponent<Rigidbody2D>().velocity = lastVelocity;
+        }
     }
     
     private void KillBall()
@@ -41,9 +51,15 @@ public class Ball : MonoBehaviour
         ResetBall();
     }
     
-    private void LoseLife()
+    public void StopGame()  // Triggered by EnterMainMenuState or EnterWonState or EnterLostState
     {
-        //Broadcasts to the Game Manager that we lost a life
+        StopBall();
+        ResetBall();
+    }
+    
+    private void LoseLife() //Broadcasts to the Game Manager that we lost a life
+    {
+        LostLife.Invoke();
     }
     
     public void OnTriggerEnter2D(Collider2D other)
@@ -64,6 +80,7 @@ public class Ball : MonoBehaviour
     private void StopBall()
     {
         ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetLastVelocity(); // zero out last velocity
     }
     
     private void ResetBall()
@@ -77,14 +94,14 @@ public class Ball : MonoBehaviour
         ball.GetComponent<Rigidbody2D>().AddForce(10*lastVelocity);
     }
     
-    public void IncreasePoints()
+    public void IncreasePoints() //Sends event out to add points to the total score
     {
-        //Sends event out to add points to the total score
+        IncrementPoints.Invoke();
     }
     
     //public void BonkBrick(brick)
     //{
-       // Sends event that the brick that was hit must be destroyed/hidden
+       // Sends event that the brick that was hit must be destroyed/hidden??????
    // }
 
     private void RandomizeLaunchVelocity()
@@ -107,14 +124,12 @@ public class Ball : MonoBehaviour
 
     private bool RandomizeXDirection()
     {
-        if (Random.value > .5)
+        if (Random.value > .5) //positive direction
         {
-            //positive direction
             return true;
         }
-        else
+        else //negative direction
         {
-            //negative direction
             return false;
         }
     }

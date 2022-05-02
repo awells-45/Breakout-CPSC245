@@ -4,12 +4,12 @@ public class Paddle : MonoBehaviour
 {
     public GameObject leftWall;
     public GameObject rightWall;
-    //public GameManager gameManager;
     public float moveAmount;
 
+    private bool _gameIsPlaying = false;
+
     public void OnLeftPress() {
-        //if (gameManager.getState() == alive)???
-        if (true)
+        if(_gameIsPlaying)
         {
             var paddleLeftEdge = this.transform.position.x - (this.GetComponent<Collider2D>().bounds.size.x / 2);
             var wallRightEdge = leftWall.transform.position.x + (leftWall.GetComponent<Collider2D>().bounds.size.x / 2);
@@ -19,8 +19,7 @@ public class Paddle : MonoBehaviour
     }
 
     public void OnRightPress() {
-        //if (gameManager.getState() == alive)??? 
-        if (true)
+        if (_gameIsPlaying)
         {
             var paddleRightEdge = this.transform.position.x + (this.GetComponent<Collider2D>().bounds.size.x / 2);
             var wallLeftEdge = rightWall.transform.position.x - (rightWall.GetComponent<Collider2D>().bounds.size.x / 2);
@@ -29,7 +28,22 @@ public class Paddle : MonoBehaviour
         }
     }
 
-    public void ResetPaddle() { // This needs to be triggered by an event
-        this.transform.position = new Vector3(0, 0, 0);
+    public void StartGame() // Triggered by EnterPlayingState or the Ball's LaunchingBall event
+    {
+        _gameIsPlaying = true;
+    }
+
+    public void PauseGame()  // Triggered by EnterPauseState
+    {
+        _gameIsPlaying = false;
+    }
+    
+    public void StopGame() { // Triggered by EnterMainMenuState or EnterWonState or EnterLostState or the Ball's LostLife event
+        _gameIsPlaying = false;
+        ResetPaddle();
+    }
+
+    public void ResetPaddle() {
+        this.transform.position = new Vector3(0, -2.4f, 0);
     }
 }
