@@ -1317,6 +1317,7 @@ MonoBehaviour:
   pauseMenuGroup: {fileID: 1395035188}
   loseScreenGroup: {fileID: 1173501643}
   winScreenGroup: {fileID: 1241915129}
+  playingScreenGroup: {fileID: 1377285338}
 --- !u!1 &631656202
 GameObject:
   m_ObjectHideFlags: 0
@@ -2626,7 +2627,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 790.8021, y: 444.8262}
+  m_SizeDelta: {x: 440.0181, y: 247.51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1351670381
 MonoBehaviour:
@@ -2754,7 +2755,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 790.8021, y: 444.8262}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1395035188
 CanvasGroup:
@@ -3117,9 +3118,9 @@ RectTransform:
   m_Father: {fileID: 1395035187}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 140}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 95}
   m_SizeDelta: {x: 612.9217, y: 114.9228}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1510840548
@@ -3686,7 +3687,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 383.6678, y: 215.81}
+  m_SizeDelta: {x: 254.2435, y: 143.0099}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1879127001
 MonoBehaviour:
