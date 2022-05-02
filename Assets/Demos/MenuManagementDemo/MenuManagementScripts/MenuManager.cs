@@ -7,6 +7,7 @@ public class MenuManager : MonoBehaviour
 	[SerializeField] private CanvasGroup pauseMenuGroup;
 	[SerializeField] private CanvasGroup loseScreenGroup;
 	[SerializeField] private CanvasGroup winScreenGroup;
+	[SerializeField] private CanvasGroup playingScreenGroup;
 
 	private void OnEnable()
     {
@@ -86,11 +87,13 @@ public class MenuManager : MonoBehaviour
 	private void ShowPauseMenu()
 	{
 		Show(pauseMenuGroup);
+		BlockInteraction(playingScreenGroup);
 	}
 
 	private void HidePauseMenu()
 	{
 		Hide(pauseMenuGroup);
+		AllowInteraction(playingScreenGroup);
 	}
 	
 	private void ShowLoseScreen()
@@ -119,6 +122,18 @@ public class MenuManager : MonoBehaviour
 		group.alpha = 0; 
 		group.interactable = false; 
 		group.blocksRaycasts = false;
+	}
+
+	private void BlockInteraction(CanvasGroup group)
+	{
+		group.interactable = false;
+		group.blocksRaycasts = false;
+	}
+	
+	private void AllowInteraction(CanvasGroup group)
+	{
+		group.interactable = true;
+		group.blocksRaycasts = true;
 	}
 	
 	//Showing the screen and enabling interaction
