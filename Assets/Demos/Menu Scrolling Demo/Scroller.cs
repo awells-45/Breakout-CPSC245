@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Collections;
+// enables menu navigation using the up and down arrow keys and without the use of a mouse
 using UnityEngine;
 using UnityEngine.Events;
 
