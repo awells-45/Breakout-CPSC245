@@ -31,44 +31,7 @@ public class MenuManager : MonoBehaviour
 	    TestButtons.LoseScreenStart += ShowLoseScreen;
 	    TestButtons.LoseScreenEnd += HideLoseScreen;
     }
-    
-	//Input that I'm not sure which script is handling
-	// private void Update() { 
-	// 	if (Input.GetKeyDown(KeyCode.Escape)) {
-	// 		isPaused = !isPaused;
-	// 		if(isPaused)
-	// 		{ 
-	// 			gameManager.ChangeToNewState(GameStatePaused);
-	// 		}
-	// 		else
-	// 		{ 
-	// 			gameManager.ChangeToNewState(GameStatePlaying);
-	// 		}
-	// 	}
-	// }
-    
-	// public void OnPauseButtonClick()
-	// {
-	// 	isPaused = !isPaused;
-	// 	if(isPaused)
-	// 	{ 
-	// 		gameManager.ChangeToNewState(GameStatePaused);
-	// 	}
-	// 	else
-	// 	{ 
-	// 		gameManager.ChangeToNewState(GameStatePlaying);
-	// 	}
-	// }
-    
-	// public void OnMainMenuButtonClick()
-	// {
-	// 	gameManager.ChangeToNewState(GameStateMainMenu);
-	// }
-	// public void OnPlayButtonClick()
-	// {
-	// 	gameManager.ChangeToNewState(GameStatePlaying);
-	// }
-        
+	
 	public void OnQuitButtonClick()
 	{
 		Application.Quit();
@@ -77,11 +40,13 @@ public class MenuManager : MonoBehaviour
 	private void ShowMainMenu()
 	{
 		Show(mainMenuGroup);
+		Hide(playingScreenGroup);
 	}
 
 	private void HideMainMenu()
 	{
 		Hide(mainMenuGroup);
+		Show(playingScreenGroup);
 	}
 	
 	private void ShowPauseMenu()
@@ -99,6 +64,7 @@ public class MenuManager : MonoBehaviour
 	private void ShowLoseScreen()
 	{
 		Show(loseScreenGroup);
+		Hide(playingScreenGroup);
 	}
 
 	private void HideLoseScreen()
@@ -109,6 +75,7 @@ public class MenuManager : MonoBehaviour
 	private void ShowWinScreen()
 	{
 		Show(winScreenGroup);
+		Hide(playingScreenGroup);
 	}
 	
 	private void HideWinScreen()
