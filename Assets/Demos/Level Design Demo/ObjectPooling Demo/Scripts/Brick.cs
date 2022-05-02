@@ -7,11 +7,13 @@
  * Contains all methods and data relevant to an individual brick
  */
 
+//Created by Natalie Huante
+//Overall purpose: Manages all actions and data of an individual brick
+
 using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
-    public GameObject brick;
     public LevelLoadManager levelLoadManager;
     public Sprite image; // brick art image
     private SpriteRenderer spriteRenderer;
@@ -20,7 +22,6 @@ public class Brick : MonoBehaviour
     // assigns objects when the brick is created by the object pool 
     private void Awake()
     {
-        brick = this.gameObject;
         spriteRenderer = GetComponent<SpriteRenderer>();
         levelLoadManager = FindObjectOfType<LevelLoadManager>();
         objectPool = FindObjectOfType<ObjectPool>();
@@ -43,13 +44,13 @@ public class Brick : MonoBehaviour
     // sets the brick to active in the scene
     public void ShowBrick()
     {
-        brick.SetActive(true);
+        gameObject.SetActive(true);
     }
     
     // sets the brick to inactive in the scene
     private void HideBrick()
     {
-        brick.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     // sets up the brick for the level given position and sprite
