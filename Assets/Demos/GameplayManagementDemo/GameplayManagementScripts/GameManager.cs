@@ -22,10 +22,12 @@ public class GameManager : MonoBehaviour
     public UnityEvent EnterLoadLevelState;
     public UnityEvent EnterMainMenuState;
 
+    // Variable that contains the current game state
     private GameState currentState;
 
     private void Awake()
     {
+        // Creates and sets new game state to each state variable
         LoadLevelState = new GameStateLoadLevel();
         LostState = new GameStateLost();
         MainMenuState = new GameStateMainMenu();
@@ -33,12 +35,14 @@ public class GameManager : MonoBehaviour
         PlayingState = new GameStatePlaying();
         WonState = new GameStateWon();
 
+        // Set current state to main menu as should be the first state entered upon game start
         currentState = MainMenuState;
     }
 
+    // Contains the subscriptions to events that will cause state transitions, Ex: PlayButtonIsPressed in MainMenu
     private void OnEnable()
     {
-        // subscribe to all events that cause state changes
+        // SUBSCRIPTIONS ARE FOR THE DEMO
         TestUI.Lost += ChangeToNewState;
         TestUI.LoadLevel += ChangeToNewState;
         TestUI.MainMenu += ChangeToNewState;
@@ -47,9 +51,10 @@ public class GameManager : MonoBehaviour
         TestUI.Won += ChangeToNewState;
     }
 
+    // Contains all the unsubscriptions to events that will cause state transitions
     private void OnDisable()
     {
-        // unsubscribe to all events that cause state changes
+        // UNSUBSCRIPTIONS ARE NOT FOR THE DEMO
         TestUI.Lost -= ChangeToNewState;
         TestUI.LoadLevel -= ChangeToNewState;
         TestUI.MainMenu -= ChangeToNewState;
@@ -86,41 +91,52 @@ public class GameManager : MonoBehaviour
         ChangeToNewState(State.MainMenu);
     }
 
+    // Method that takes in an enum relaying to each state, checks the enum, and changes to the current state
     private void ChangeToNewState(State newState)
     {
+        // Call the current state's OnExitEvent
         currentState.OnStateExited();
 
+        // Switch statement to check the enum
         switch (newState)
         {
+            // If lose state, change current state to LostState
             case State.Lost:
                 currentState = LostState;
                 EnterLostState.Invoke(); // send unity event
                 break;
+            // If pause state, change current state to PauseState
             case State.Pause:
                 currentState = PauseState;
                 EnterPauseState.Invoke();
                 break;
+            // If playing state, change current state to PlayingState
             case State.Playing:
                 currentState = PlayingState;
                 EnterPlayingState.Invoke();
                 break;
+            // If won state, change current state to WonState
             case State.Won:
                 currentState = WonState;
                 EnterWonState.Invoke();
                 break;
+            // If load level state, change current state to LoadLevelState
             case State.LoadLevel:
                 currentState = LoadLevelState;
                 EnterLoadLevelState.Invoke();
                 break;
+            // If main menu state, change current state to MainMenuState
             case State.MainMenu:
                 currentState = MainMenuState;
                 EnterMainMenuState.Invoke();
                 break;
+            // Should never occur, but if reaches default log an error
             default:
-                Debug.Log("Error on ChangeToNewState");
+                Debug.LogError("Error on ChangeToNewState");
                 break;
         }
         
+        // Call the current state's OnEnterEvent
         currentState.OnStateEntered();
     }
 }
