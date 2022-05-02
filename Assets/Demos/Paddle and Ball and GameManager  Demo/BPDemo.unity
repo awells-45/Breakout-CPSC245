@@ -2202,7 +2202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftWall: {fileID: 14782868}
   rightWall: {fileID: 1272589544}
-  moveAmount: 0.05
+  moveAmount: 0.14
 --- !u!1 &1670101704
 GameObject:
   m_ObjectHideFlags: 0
