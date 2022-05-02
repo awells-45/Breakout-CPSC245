@@ -16,5 +16,7 @@ using UnityEngine.Audio;
 
 public class Level : ScriptableObject
 {
+    public AudioClip LevelSoundtrack;
+    
     public List<BlueprintBrick> bricks = new List<BlueprintBrick>();
 }
