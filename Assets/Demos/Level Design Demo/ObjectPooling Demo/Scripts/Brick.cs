@@ -10,6 +10,7 @@
 //Created by Natalie Huante
 //Overall purpose: Manages all actions and data of an individual brick
 
+using System;
 using UnityEngine;
 
 public class Brick : MonoBehaviour
@@ -23,8 +24,15 @@ public class Brick : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        levelLoadManager = FindObjectOfType<LevelLoadManager>();
-        objectPool = FindObjectOfType<ObjectPool>();
+        
+    }
+
+    private void Start()
+    {
+        levelLoadManager = LevelLoadManager.sharedInstance;
+        //levelLoadManager = FindObjectOfType<LevelLoadManager>();
+        objectPool = ObjectPool.sharedInstance;
+        //objectPool = FindObjectOfType<ObjectPool>();
     }
 
     // when brick is collided with by ball, brick is set to inactive and the number of active bricks is updated

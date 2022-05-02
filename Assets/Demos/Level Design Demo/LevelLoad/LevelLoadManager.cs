@@ -30,6 +30,8 @@ public class LevelLoadManager : MonoBehaviour
     // LevelCompleted.OnLevelCompleted += yourFunctionHere;
     // Once above code is added, "yourFunctionHere" will be called every time the "OnLevelCompleted" event occurs
 
+    public static LevelLoadManager sharedInstance;
+    
     public int activeBricks = 0;
     public int numToPool;
     public Level[] levels;
@@ -39,21 +41,27 @@ public class LevelLoadManager : MonoBehaviour
     // creates the object pool and sets the amount of bricks needed to pool
     private void Awake()
     {
-        objectPool = FindObjectOfType<ObjectPool>();
+        sharedInstance = this;
+    }
+
+    private void Start()
+    {
+        objectPool = ObjectPool.sharedInstance;
+        //objectPool = FindObjectOfType<ObjectPool>();
         objectPool.amountToPool = numToPool;
     }
-    
-    
+
+
     // Loads the current level, then adds 1 to currentLevel to load the next level next time
     public void LoadLevel()
     {
         Debug.Log(currentLevel);
         Level level = levels[currentLevel];
         currentLevel += 1;
-        //foreach (BlueprintBrick brick in level.bricks)
-        //{
-        //   AddBrick(brick);
-        //}
+        if (currentLevel == levels.Length)
+        {
+            currentLevel = 0;
+        }
         Debug.Log(objectPool);
         objectPool.PlaceBricks(getBrickLocations(level), getBrickSprites(level));
         activeBricks = level.bricks.Count;
