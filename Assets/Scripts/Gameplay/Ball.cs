@@ -5,61 +5,25 @@ using Random = UnityEngine.Random;
 public class Ball : MonoBehaviour
 {
     public GameObject ball;
-    private Vector3 startingVelocity = new Vector3(100,100 ,0);
-    private Vector3 lastVelocity = new Vector3(0,0 ,0);
+    private Vector3 startingVelocity = new Vector3(5,5 ,0);
     public GameObject KillBox;
-    
-    public UnityEvent LostLife;
-    public UnityEvent IncrementPoints;
-    public UnityEvent LaunchingBall;
 
-    public void LaunchBall() //Subscribed to EnterPlayingState GameManager event
+    public void LaunchBall()
     {
-        // Checking that lastVelocity == 0 to ensure that the game is not being unpaused
-        if ((lastVelocity.x == 0) && (lastVelocity.y == 0))
-        {
-            RandomizeLaunchVelocity();
-            ball.GetComponent<Rigidbody2D>().AddForce(startingVelocity); //Change the transform of the ball based on new velocity
-            LaunchingBall.Invoke();
-        }
-    }
-    
-    public void PauseBall() // //Subscribed to EnterPauseState GameManager event
-    {
-        GetLastVelocity();
-        StopBall();
+        RandomizeLaunchVelocity();
+        ball.GetComponent<Rigidbody2D>().velocity = startingVelocity;
     }
 
-    private void GetLastVelocity()
-    {
-        lastVelocity = ball.GetComponent<Rigidbody2D>().velocity;
-    }
-
-    public void UnpauseBall() //Subscribed to EnterPlayingState GameManager event
-    {
-        // Checking that lastVelocity != 0 to ensure that the game is not being started
-        if ((lastVelocity.x != 0) || (lastVelocity.y != 0))
-        {
-            ball.GetComponent<Rigidbody2D>().velocity = lastVelocity;
-        }
-    }
-    
-    private void KillBall()
+    public void KillBall()
     {
         LoseLife();
         StopBall();
         ResetBall();
     }
-    
-    public void StopGame()  // Triggered by EnterMainMenuState or EnterWonState or EnterLostState
-    {
-        StopBall();
-        ResetBall();
-    }
-    
+
     private void LoseLife() //Broadcasts to the Game Manager that we lost a life
     {
-        LostLife.Invoke();
+        // C# Event???
     }
     
     public void OnTriggerEnter2D(Collider2D other)
@@ -80,7 +44,6 @@ public class Ball : MonoBehaviour
     private void StopBall()
     {
         ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        GetLastVelocity(); // zero out last velocity
     }
     
     private void ResetBall()
@@ -88,15 +51,17 @@ public class Ball : MonoBehaviour
         ball.transform.position = new Vector3(0, 0 ,0);
     }
     
+    /*
     public void IncreaseVelocity()
     {
-        GetLastVelocity();
+        Vector3 lastVelocity = ball.GetComponent<Rigidbody2D>().velocity;
         ball.GetComponent<Rigidbody2D>().AddForce(10*lastVelocity);
     }
+    */
     
     public void IncreasePoints() //Sends event out to add points to the total score
     {
-        IncrementPoints.Invoke();
+        // C# Event???
     }
     
     //public void BonkBrick(brick)
@@ -116,8 +81,8 @@ public class Ball : MonoBehaviour
         {
             xDirection = -1;
         }
-        float xVelocity = xDirection*200 - xDirection*Random.value*175;
-        float yVelocity = 200;
+        float xVelocity = xDirection*4 - xDirection*Random.value*1.75f;
+        float yVelocity = 4;
         Vector3 randomVelocity = new Vector3(xVelocity ,yVelocity);
         startingVelocity = randomVelocity;
     }

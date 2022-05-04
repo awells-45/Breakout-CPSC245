@@ -4,12 +4,9 @@ using UnityEngine.InputSystem;
 
 public class Paddle : MonoBehaviour
 {
-    public float moveAmount;
     public float moveSpeed = 2.0f; 
     public PlayerInputActions playerInputs;
     private Rigidbody2D rigidBody;
-    private bool _gameIsPlaying = false;
-
 
     private void Awake()
     {
@@ -30,7 +27,6 @@ public class Paddle : MonoBehaviour
 
     public void OnLeftPress(InputAction.CallbackContext callback) 
     {
-        //if(_gameIsPlaying)
         if (callback.canceled) {
             this.rigidBody.velocity = Vector2.zero;
         }
@@ -47,21 +43,6 @@ public class Paddle : MonoBehaviour
         else if (callback.performed) {
             this.rigidBody.velocity += new Vector2(moveSpeed, 0);
         }
-    }
-
-    public void StartGame() // Triggered by EnterPlayingState or the Ball's LaunchingBall event
-    {
-        _gameIsPlaying = true;
-    }
-
-    public void PauseGame()  // Triggered by EnterPauseState
-    {
-        _gameIsPlaying = false;
-    }
-    
-    public void StopGame() { // Triggered by EnterMainMenuState or EnterWonState or EnterLostState or the Ball's LostLife event
-        _gameIsPlaying = false;
-        ResetPaddle();
     }
 
     public void ResetPaddle() 
