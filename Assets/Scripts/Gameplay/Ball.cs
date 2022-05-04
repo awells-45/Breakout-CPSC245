@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
@@ -14,6 +15,16 @@ public class Ball : MonoBehaviour
         ball.GetComponent<Rigidbody2D>().velocity = startingVelocity;
     }
 
+    private void OnEnable()
+    {
+        throw new NotImplementedException();
+    }
+    
+    private void OnDisable()
+    {
+        throw new NotImplementedException();
+    }
+
     public void KillBall()
     {
         LoseLife();
@@ -25,22 +36,7 @@ public class Ball : MonoBehaviour
     {
         // C# Event???
     }
-    
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other == KillBox.GetComponent<Collider2D>())
-        {
-            KillBall();
-        }
 
-        /*if (other == is in an array of bricks)
-        {
-            BonkBrick(brick);
-            IncreasePoints();
-        }
-        */
-    } 
-    
     private void StopBall()
     {
         ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -61,7 +57,7 @@ public class Ball : MonoBehaviour
     //public void BonkBrick(brick) // This should instead be done by the bricks!!!!!!!!!!!!!!!!!!!!
     //{
        // Sends event that the brick that was hit must be destroyed/hidden??????
-   // }
+    //}
 
     private void RandomizeLaunchVelocity()
     {
