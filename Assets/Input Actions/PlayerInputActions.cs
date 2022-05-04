@@ -44,6 +44,24 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Launch Ball"",
+                    ""type"": ""Button"",
+                    ""id"": ""5f65d155-c153-498a-a8c0-e97ab274d572"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""c4f060c1-311d-4b31-96b7-a573efc485da"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -88,6 +106,28 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Move Paddle Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""357cd57e-aaf2-4478-ae6b-f4e3e0eaa8f4"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Launch Ball"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""62782abd-0585-4baf-8e45-8d1323f3b0ae"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -170,6 +210,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_MovePaddleLeft = m_Player.FindAction("Move Paddle Left", throwIfNotFound: true);
         m_Player_MovePaddleRight = m_Player.FindAction("Move Paddle Right", throwIfNotFound: true);
+        m_Player_LaunchBall = m_Player.FindAction("Launch Ball", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_NavigateUp = m_Menu.FindAction("Navigate Up", throwIfNotFound: true);
@@ -235,12 +277,16 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_MovePaddleLeft;
     private readonly InputAction m_Player_MovePaddleRight;
+    private readonly InputAction m_Player_LaunchBall;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @MovePaddleLeft => m_Wrapper.m_Player_MovePaddleLeft;
         public InputAction @MovePaddleRight => m_Wrapper.m_Player_MovePaddleRight;
+        public InputAction @LaunchBall => m_Wrapper.m_Player_LaunchBall;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -256,6 +302,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @MovePaddleRight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovePaddleRight;
                 @MovePaddleRight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovePaddleRight;
                 @MovePaddleRight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovePaddleRight;
+                @LaunchBall.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLaunchBall;
+                @LaunchBall.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLaunchBall;
+                @LaunchBall.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLaunchBall;
+                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -266,6 +318,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @MovePaddleRight.started += instance.OnMovePaddleRight;
                 @MovePaddleRight.performed += instance.OnMovePaddleRight;
                 @MovePaddleRight.canceled += instance.OnMovePaddleRight;
+                @LaunchBall.started += instance.OnLaunchBall;
+                @LaunchBall.performed += instance.OnLaunchBall;
+                @LaunchBall.canceled += instance.OnLaunchBall;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -315,6 +373,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     {
         void OnMovePaddleLeft(InputAction.CallbackContext context);
         void OnMovePaddleRight(InputAction.CallbackContext context);
+        void OnLaunchBall(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

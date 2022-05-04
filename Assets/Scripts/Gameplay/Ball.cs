@@ -5,59 +5,46 @@ using Random = UnityEngine.Random;
 
 public class Ball : MonoBehaviour
 {
-    public GameObject ball;
     private Vector3 startingVelocity = new Vector3(5,5 ,0);
-    public GameObject KillBox;
+    private Rigidbody2D rigidBody;
+
+    private void Awake() {
+        this.rigidBody = this.GetComponent<Rigidbody2D>();
+    }
 
     public void LaunchBall()
     {
         RandomizeLaunchVelocity();
-        ball.GetComponent<Rigidbody2D>().velocity = startingVelocity;
+        rigidBody.velocity = startingVelocity;
     }
 
     private void OnEnable()
     {
-        throw new NotImplementedException();
+        GameStateLoadLevel.LoadLevelStateBegin += KillBall;
+        Killzone.KillBallCollision += KillBall;
     }
     
     private void OnDisable()
     {
-        throw new NotImplementedException();
+        GameStateLoadLevel.LoadLevelStateBegin -= KillBall;
+        Killzone.KillBallCollision -= KillBall;
     }
 
     public void KillBall()
     {
-        LoseLife();
         StopBall();
         ResetBall();
     }
 
-    private void LoseLife() //Broadcasts to the Game Manager that we lost a life
-    {
-        // C# Event???
-    }
-
     private void StopBall()
     {
-        ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        rigidBody.velocity = Vector2.zero;
     }
     
     private void ResetBall()
     {
-        ball.transform.position = new Vector3(0, 0 ,0);
+        this.transform.position = new Vector3(0, 0 ,0);
     }
-
-    /*
-    public void IncreasePoints() //Sends event out to add points to the total score - This should instead be done by the bricks!!!!!!!!!!!!!!!!!!!!
-    {
-        // C# Event???
-    }
-    */
-    
-    //public void BonkBrick(brick) // This should instead be done by the bricks!!!!!!!!!!!!!!!!!!!!
-    //{
-       // Sends event that the brick that was hit must be destroyed/hidden??????
-    //}
 
     private void RandomizeLaunchVelocity()
     {
