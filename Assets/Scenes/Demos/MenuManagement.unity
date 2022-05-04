@@ -574,6 +574,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenusCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8054477945839470148, guid: 11638952f1b1a9948be925af4ddcbf44, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8054477945839470150, guid: 11638952f1b1a9948be925af4ddcbf44, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -662,5 +666,13 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1771214267}
+    - target: {fileID: 8054477945839470151, guid: 11638952f1b1a9948be925af4ddcbf44, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8054477945839470151, guid: 11638952f1b1a9948be925af4ddcbf44, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11638952f1b1a9948be925af4ddcbf44, type: 3}

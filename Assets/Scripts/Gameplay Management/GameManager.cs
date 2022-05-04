@@ -39,9 +39,9 @@ public class GameManager : MonoBehaviour
         TestButtons.PauseMenuStart += ChangeToNewState;
         TestButtons.PauseMenuEnd += ChangeToNewState;
         TestButtons.LoseScreenStart += ChangeToNewState;
-        TestButtons.LoseScreenEnd += ChangeToNewState;
+        // TestButtons.LoseScreenEnd += ChangeToNewState;
         TestButtons.WinScreenStart += ChangeToNewState;
-        TestButtons.WinScreenEnd += ChangeToNewState;
+        // TestButtons.WinScreenEnd += ChangeToNewState;
     }
 
     // Contains all the unsubscriptions to events that will cause state transitions
@@ -60,9 +60,9 @@ public class GameManager : MonoBehaviour
         TestButtons.PauseMenuStart -= ChangeToNewState;
         TestButtons.PauseMenuEnd -= ChangeToNewState;
         TestButtons.LoseScreenStart -= ChangeToNewState;
-        TestButtons.LoseScreenEnd -= ChangeToNewState;
+        // TestButtons.LoseScreenEnd -= ChangeToNewState;
         TestButtons.WinScreenStart -= ChangeToNewState;
-        TestButtons.WinScreenEnd -= ChangeToNewState;
+        // TestButtons.WinScreenEnd -= ChangeToNewState;
     }
 
     // Method that takes in an enum relaying to each state, checks the enum, and changes to the current state

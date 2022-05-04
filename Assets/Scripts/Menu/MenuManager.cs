@@ -13,10 +13,11 @@ public class MenuManager : MonoBehaviour
 	private void OnEnable()
     {
 	     //GameState Events MenuManager should subscribe to
+	     //Hiding the Win and Lose is 
 	     GameStateWon.WonStateBegin += ShowWinScreen;
-	     GameStateWon.WonStateEnd += HideWinScreen;
+	     //GameStateWon.WonStateEnd += HideWinScreen;
 	     GameStateLost.LoseStateBegin += ShowLoseScreen;
-	     GameStateWon.WonStateEnd += HideLoseScreen;
+	     //GameStateWon.WonStateEnd += HideLoseScreen;
 	     GameStatePaused.PauseStateBegin += ShowPauseMenu;
 	     GameStatePaused.PauseStateEnd += HidePauseMenu;
 	     GameStateMainMenu.MainMenuStateBegin += ShowMainMenu;
@@ -37,9 +38,9 @@ public class MenuManager : MonoBehaviour
 	private void OnDisable()
 	{
 		GameStateWon.WonStateBegin -= ShowWinScreen;
-		GameStateWon.WonStateEnd -= HideWinScreen;
+		//GameStateWon.WonStateEnd -= HideWinScreen;
 		GameStateLost.LoseStateBegin -= ShowLoseScreen;
-		GameStateWon.WonStateEnd -= HideLoseScreen;
+		//GameStateWon.WonStateEnd -= HideLoseScreen;
 		GameStatePaused.PauseStateBegin -= ShowPauseMenu;
 		GameStatePaused.PauseStateEnd -= HidePauseMenu;
 		GameStateMainMenu.MainMenuStateBegin -= ShowMainMenu;
@@ -51,6 +52,7 @@ public class MenuManager : MonoBehaviour
 		Application.Quit();
 	}
 
+	//When the main menu is showing all the other canvas groups are hidden
 	private void ShowMainMenu()
 	{
 		Show(mainMenuGroup);
@@ -83,11 +85,11 @@ public class MenuManager : MonoBehaviour
 		Show(loseScreenGroup);
 		Hide(playingScreenGroup);
 	}
-
-	private void HideLoseScreen()
-	{
-		Hide(loseScreenGroup);
-	}
+	
+	// private void HideLoseScreen()
+	// {
+	// 	Hide(loseScreenGroup);
+	// }
 	
 	private void ShowWinScreen()
 	{
@@ -95,10 +97,10 @@ public class MenuManager : MonoBehaviour
 		Hide(playingScreenGroup);
 	}
 	
-	private void HideWinScreen()
-	{
-		Hide(winScreenGroup);
-	}
+	// private void HideWinScreen()
+	// {
+	// 	Hide(winScreenGroup);
+	// }
 	
 	//Hiding the screen invisible and disabling interaction
 	private void Hide(CanvasGroup group)
