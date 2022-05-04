@@ -15,7 +15,10 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
-    public LevelLoadManager levelLoadManager;
+    public delegate void ChangeScore();
+    public static event ChangeScore ChangeScoreEvent;
+
+    //public LevelLoadManager levelLoadManager;
     public Sprite image; // brick art image
     private SpriteRenderer spriteRenderer;
     private ObjectPool objectPool;
@@ -29,7 +32,7 @@ public class Brick : MonoBehaviour
 
     private void Start()
     {
-        levelLoadManager = LevelLoadManager.sharedInstance;
+        //levelLoadManager = LevelLoadManager.sharedInstance;
         //levelLoadManager = FindObjectOfType<LevelLoadManager>();
         objectPool = ObjectPool.sharedInstance;
         //objectPool = FindObjectOfType<ObjectPool>();
@@ -40,13 +43,23 @@ public class Brick : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Ball")) // if the collision is with the ball
         {
+            HandleCollision();
+        }
+    }
+
+    public void HandleCollision()
+    {
+        //send event
+            if (ChangeScoreEvent != null)
+            {
+                ChangeScoreEvent();
+            }
             // set the brick to inactive
             HideBrick();
             
             // update the number of active bricks
             //levelLoadManager.DecrementActiveBricks();
             objectPool.amountActive--;
-        }
     }
 
     // sets the brick to active in the scene

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class ScoreManModel : MonoBehaviour
      * Kinda need to combine this to actually do both of these
      */
     //SCORE MAN MODEL, THIS STORES LIVES AND SCORED AND CHANGES BASED ON THAT
-    public ScoreManView ScoreManView;
+    private ScoreManView ScoreManView;
 
     public delegate void GameOver();
     public static event GameOver GameOverEvent;
@@ -20,6 +21,11 @@ public class ScoreManModel : MonoBehaviour
 
     private int StartingBallLives = 3;
     private int BallLives = 0;
+
+    public void Awake()
+    {
+        ScoreManView = GetComponent<ScoreManView>();
+    }
 
     public void initData() //called from controller
     {
