@@ -50,21 +50,15 @@ public class Ball : MonoBehaviour
     {
         ball.transform.position = new Vector3(0, 0 ,0);
     }
-    
+
     /*
-    public void IncreaseVelocity()
-    {
-        Vector3 lastVelocity = ball.GetComponent<Rigidbody2D>().velocity;
-        ball.GetComponent<Rigidbody2D>().AddForce(10*lastVelocity);
-    }
-    */
-    
-    public void IncreasePoints() //Sends event out to add points to the total score
+    public void IncreasePoints() //Sends event out to add points to the total score - This should instead be done by the bricks!!!!!!!!!!!!!!!!!!!!
     {
         // C# Event???
     }
+    */
     
-    //public void BonkBrick(brick)
+    //public void BonkBrick(brick) // This should instead be done by the bricks!!!!!!!!!!!!!!!!!!!!
     //{
        // Sends event that the brick that was hit must be destroyed/hidden??????
    // }

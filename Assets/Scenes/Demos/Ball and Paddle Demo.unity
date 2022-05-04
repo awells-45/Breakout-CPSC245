@@ -1652,6 +1652,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  leftWall: {fileID: 14782868}
+  rightWall: {fileID: 1272589544}
 --- !u!50 &1589430060
 Rigidbody2D:
   serializedVersion: 4

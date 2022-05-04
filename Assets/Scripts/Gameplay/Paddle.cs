@@ -6,6 +6,7 @@ public class Paddle : MonoBehaviour
 {
     public float moveSpeed = 2.0f; 
     public PlayerInputActions playerInputs;
+    
     private Rigidbody2D rigidBody;
 
     private void Awake()
