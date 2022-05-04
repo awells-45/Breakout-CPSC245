@@ -3,7 +3,7 @@ using UnityEngine;
 public class TestButtons : MonoBehaviour
 {
     //Events mimicking the GameState GameStateEnter and GameStateExit methods on each GameState class
-    public delegate void PublishState();
+    public delegate void PublishState(State newState);
 
     public static event PublishState MainMenuStart;
     public static event PublishState MainMenuEnd;
@@ -21,7 +21,7 @@ public class TestButtons : MonoBehaviour
         // To play just hide the main menu
         if (MainMenuEnd != null)
         {
-            MainMenuEnd();
+            MainMenuEnd(State.Playing);
         }
     }
     
@@ -30,7 +30,7 @@ public class TestButtons : MonoBehaviour
     {
         if (PauseMenuStart != null)
         {
-            PauseMenuStart();
+            PauseMenuStart(State.Pause);
         }
     }
 
@@ -39,7 +39,7 @@ public class TestButtons : MonoBehaviour
     {
         if (PauseMenuEnd != null)
         {
-            PauseMenuEnd();
+            PauseMenuEnd(State.Playing);
         }
     }
     
@@ -48,7 +48,7 @@ public class TestButtons : MonoBehaviour
     {
         if (MainMenuStart != null)
         {
-            MainMenuStart();
+            MainMenuStart(State.MainMenu);
         }
     }
 
@@ -56,12 +56,12 @@ public class TestButtons : MonoBehaviour
     // Invokes end events for any screen that may already be up upon clicking a MainMenu button
     public void OnClickReturn()
     {
-        if (MainMenuStart != null && LoseScreenEnd != null && WinScreenEnd != null && PauseMenuEnd != null)
+        if (MainMenuStart != null)
         {
-            LoseScreenEnd();
-            WinScreenEnd();
-            PauseMenuEnd();
-            MainMenuStart();
+            // LoseScreenEnd(State.MainMenu);
+            // WinScreenEnd(State.MainMenu);
+            // PauseMenuEnd(State.MainMenu);
+            MainMenuStart(State.MainMenu);
         }
     }
     
@@ -70,7 +70,7 @@ public class TestButtons : MonoBehaviour
     {
         if (LoseScreenStart != null)
         {
-            LoseScreenStart();
+            LoseScreenStart(State.Lost);
         }
     }
     
@@ -79,7 +79,7 @@ public class TestButtons : MonoBehaviour
     {
         if (WinScreenStart != null)
         {
-           WinScreenStart();
+           WinScreenStart(State.Won);
         }
     }
 }

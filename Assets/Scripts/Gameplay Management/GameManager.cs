@@ -34,24 +34,35 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         // SUBSCRIPTIONS ARE FOR THE DEMO
-        TestUI.Lost += ChangeToNewState;
-        TestUI.LoadLevel += ChangeToNewState;
-        TestUI.MainMenu += ChangeToNewState;
-        TestUI.Pause += ChangeToNewState;
-        TestUI.Playing += ChangeToNewState;
-        TestUI.Won += ChangeToNewState;
+        TestButtons.MainMenuStart += ChangeToNewState;
+        TestButtons.MainMenuEnd += ChangeToNewState;
+        TestButtons.PauseMenuStart += ChangeToNewState;
+        TestButtons.PauseMenuEnd += ChangeToNewState;
+        TestButtons.LoseScreenStart += ChangeToNewState;
+        TestButtons.LoseScreenEnd += ChangeToNewState;
+        TestButtons.WinScreenStart += ChangeToNewState;
+        TestButtons.WinScreenEnd += ChangeToNewState;
     }
 
     // Contains all the unsubscriptions to events that will cause state transitions
     private void OnDisable()
     {
         // UNSUBSCRIPTIONS ARE NOT FOR THE DEMO
-        TestUI.Lost -= ChangeToNewState;
-        TestUI.LoadLevel -= ChangeToNewState;
-        TestUI.MainMenu -= ChangeToNewState;
-        TestUI.Pause -= ChangeToNewState;
-        TestUI.Playing -= ChangeToNewState;
-        TestUI.Won -= ChangeToNewState;
+        // TestUI.Lost -= ChangeToNewState;
+        // TestUI.LoadLevel -= ChangeToNewState;
+        // TestUI.MainMenu -= ChangeToNewState;
+        // TestUI.Pause -= ChangeToNewState;
+        // TestUI.Playing -= ChangeToNewState;
+        // TestUI.Won -= ChangeToNewState;
+        
+        TestButtons.MainMenuStart -= ChangeToNewState;
+        TestButtons.MainMenuEnd -= ChangeToNewState;
+        TestButtons.PauseMenuStart -= ChangeToNewState;
+        TestButtons.PauseMenuEnd -= ChangeToNewState;
+        TestButtons.LoseScreenStart -= ChangeToNewState;
+        TestButtons.LoseScreenEnd -= ChangeToNewState;
+        TestButtons.WinScreenStart -= ChangeToNewState;
+        TestButtons.WinScreenEnd -= ChangeToNewState;
     }
 
     // Method that takes in an enum relaying to each state, checks the enum, and changes to the current state

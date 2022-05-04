@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MenuManager : MonoBehaviour
@@ -11,27 +12,40 @@ public class MenuManager : MonoBehaviour
 
 	private void OnEnable()
     {
-	    //Actual GameState Events MenuManager should subscribe to
-	    // GameStateWon.WonStateBegin += ShowWinScreen;
-	    // GameStateWon.WonStateEnd += HideWinScreen;
-	    // GameStateLost.LoseStateBegin += ShowLoseScreen;
-	    // GameStateWon.WonStateEnd += HideLoseScreen;
-	    // GameStatePaused.PauseStateBegin += ShowPauseMenu;
-	    // GameStatePaused.PauseStateEnd += HidePauseMenu;
-	    // GameStateMainMenu.MainMenuStateBegin += ShowMainMenu;
-	    // GameStateMainMenu.MainMenuStateEnd += HideMainMenu;
+	     //GameState Events MenuManager should subscribe to
+	     GameStateWon.WonStateBegin += ShowWinScreen;
+	     GameStateWon.WonStateEnd += HideWinScreen;
+	     GameStateLost.LoseStateBegin += ShowLoseScreen;
+	     GameStateWon.WonStateEnd += HideLoseScreen;
+	     GameStatePaused.PauseStateBegin += ShowPauseMenu;
+	     GameStatePaused.PauseStateEnd += HidePauseMenu;
+	     GameStateMainMenu.MainMenuStateBegin += ShowMainMenu;
+	     GameStateMainMenu.MainMenuStateEnd += HideMainMenu;
 	    
 	    //subscribing the Show and Pause methods to the test events on TestButtons
-	    TestButtons.PauseMenuStart += ShowPauseMenu;
-	    TestButtons.PauseMenuEnd += HidePauseMenu;
-	    TestButtons.MainMenuStart += ShowMainMenu;
-	    TestButtons.MainMenuEnd += HideMainMenu;
-	    TestButtons.WinScreenStart += ShowWinScreen;
-	    TestButtons.WinScreenEnd += HideWinScreen;
-	    TestButtons.LoseScreenStart += ShowLoseScreen;
-	    TestButtons.LoseScreenEnd += HideLoseScreen;
+	    // TestButtons.PauseMenuStart += ShowPauseMenu;
+	    // TestButtons.PauseMenuEnd += HidePauseMenu;
+	    // TestButtons.MainMenuStart += ShowMainMenu;
+	    // TestButtons.MainMenuEnd += HideMainMenu;
+	    // TestButtons.WinScreenStart += ShowWinScreen;
+	    // TestButtons.WinScreenEnd += HideWinScreen;
+	    // TestButtons.LoseScreenStart += ShowLoseScreen;
+	    // TestButtons.LoseScreenEnd += HideLoseScreen;
     }
 	
+	//Unsubscribe to all events on disable
+	private void OnDisable()
+	{
+		GameStateWon.WonStateBegin -= ShowWinScreen;
+		GameStateWon.WonStateEnd -= HideWinScreen;
+		GameStateLost.LoseStateBegin -= ShowLoseScreen;
+		GameStateWon.WonStateEnd -= HideLoseScreen;
+		GameStatePaused.PauseStateBegin -= ShowPauseMenu;
+		GameStatePaused.PauseStateEnd -= HidePauseMenu;
+		GameStateMainMenu.MainMenuStateBegin -= ShowMainMenu;
+		GameStateMainMenu.MainMenuStateEnd -= HideMainMenu;
+	} 
+
 	public void OnQuitButtonClick()
 	{
 		Application.Quit();
@@ -41,6 +55,9 @@ public class MenuManager : MonoBehaviour
 	{
 		Show(mainMenuGroup);
 		Hide(playingScreenGroup);
+		Hide(pauseMenuGroup);
+		Hide(winScreenGroup);
+		Hide(loseScreenGroup);
 	}
 
 	private void HideMainMenu()
