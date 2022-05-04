@@ -1,18 +1,20 @@
-using System;
 using UnityEngine;
-using UnityEngine.Events;
 using Random = UnityEngine.Random;
+using UnityEngine.InputSystem;
 
 public class Ball : MonoBehaviour
 {
+    public PlayerInputActions playerInputs;
+    
     private Vector3 startingVelocity = new Vector3(5,5 ,0);
     private Rigidbody2D rigidBody;
 
     private void Awake() {
         this.rigidBody = this.GetComponent<Rigidbody2D>();
+        playerInputs = new PlayerInputActions();
     }
 
-    public void LaunchBall()
+    public void LaunchBall(InputAction.CallbackContext callback)
     {
         RandomizeLaunchVelocity();
         rigidBody.velocity = startingVelocity;
@@ -22,12 +24,18 @@ public class Ball : MonoBehaviour
     {
         GameStateLoadLevel.LoadLevelStateBegin += KillBall;
         Killzone.KillBallCollision += KillBall;
+        playerInputs.Player.LaunchBall.performed += LaunchBall;
+        
+        playerInputs.Player.LaunchBall.Enable();
     }
     
     private void OnDisable()
     {
         GameStateLoadLevel.LoadLevelStateBegin -= KillBall;
         Killzone.KillBallCollision -= KillBall;
+        playerInputs.Player.LaunchBall.performed -= LaunchBall;
+        
+        playerInputs.Player.LaunchBall.Disable();
     }
 
     public void KillBall()

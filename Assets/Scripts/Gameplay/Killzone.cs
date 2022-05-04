@@ -9,7 +9,7 @@ public class Killzone : MonoBehaviour
 {
     public static event KillBallEvent KillBallCollision;
 
-    private void OnCollisionEnter(Collision collision) // ball hits kill zone
+    private void OnCollisionEnter2D(Collision2D collision) // ball hits kill zone
     {
         if (KillBallCollision != null)
         {
