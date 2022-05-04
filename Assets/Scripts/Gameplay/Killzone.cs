@@ -1,18 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void KillBallEvent();
+
 public class Killzone : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static event KillBallEvent KillBallCollision;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision) // ball hits kill zone
     {
-        
+        if (KillBallCollision != null)
+        {
+            KillBallCollision();  // kill event - Ball should be killed; a life should be lost; paddle should be reset
+        }
     }
 }
