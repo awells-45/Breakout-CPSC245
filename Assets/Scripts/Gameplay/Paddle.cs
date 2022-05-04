@@ -36,6 +36,9 @@ public class Paddle : MonoBehaviour
         playerInputs.Player.MovePaddleRight.performed -= OnRightPress;
         playerInputs.Player.MovePaddleRight.canceled -= OnRightPress;
         
+        playerInputs.Player.MovePaddleLeft.Disable();
+        playerInputs.Player.MovePaddleRight.Disable();
+        
         GameStateLoadLevel.LoadLevelStateBegin -= ResetPaddle;
         Killzone.KillBallCollision -= ResetPaddle;
     }

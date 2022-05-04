@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void KillBallEvent();
+
 public class Killzone : MonoBehaviour
 {
-    public delegate void KillBallEvent();
     public static event KillBallEvent KillBallCollision;
 
     private void OnCollisionEnter(Collision collision) // ball hits kill zone
