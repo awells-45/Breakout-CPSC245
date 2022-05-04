@@ -1,0 +1,16 @@
+Quick Start:
+
+1. Drag and drop the  prefab from Lune/RetroRenderer/Prefabs into your scene
+2. Disable any other cameras already in the scene
+3. In the contained Post Process Volume on the prefab, play with the values of VHS Effect and 
+Pixelation Effect and you're good to go!
+4. See documentation (https://www.luneinteractive.com/vhs-effects-documentation) for a more in depth guide on each effect and its variables
+
+
+Alternatively:
+
+Add the desired custom Post Process effect to your pre-existing Post Process volumes
+
+
+
+Enjoy!
