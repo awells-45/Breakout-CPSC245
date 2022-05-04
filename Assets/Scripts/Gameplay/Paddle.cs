@@ -5,20 +5,24 @@ using UnityEngine.InputSystem;
 public class Paddle : MonoBehaviour
 {
     public float moveAmount;
+    public float moveSpeed = 2.0f; 
     public PlayerInputActions playerInputs;
-
+    private Rigidbody2D rigidBody;
     private bool _gameIsPlaying = false;
 
 
     private void Awake()
     {
         playerInputs = new PlayerInputActions();
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     private void OnEnable()
     {
         playerInputs.Player.MovePaddleLeft.performed += OnLeftPress;
+        playerInputs.Player.MovePaddleLeft.canceled += OnLeftPress;
         playerInputs.Player.MovePaddleRight.performed += OnRightPress;
+        playerInputs.Player.MovePaddleRight.canceled += OnRightPress;
         
         playerInputs.Player.MovePaddleLeft.Enable();
         playerInputs.Player.MovePaddleRight.Enable();
@@ -27,13 +31,22 @@ public class Paddle : MonoBehaviour
     public void OnLeftPress(InputAction.CallbackContext callback) 
     {
         //if(_gameIsPlaying)
-            this.transform.position += Vector3.left * moveAmount;
+        if (callback.canceled) {
+            this.rigidBody.velocity = Vector2.zero;
+        }
+        else if (callback.performed) {
+            this.rigidBody.velocity -= new Vector2(moveSpeed, 0);
+        }
     }
 
     public void OnRightPress(InputAction.CallbackContext callback) 
     {
-        //if (_gameIsPlaying)
-            this.transform.position += Vector3.right * moveAmount;
+        if (callback.canceled) {
+            this.rigidBody.velocity = Vector2.zero;
+        }
+        else if (callback.performed) {
+            this.rigidBody.velocity += new Vector2(moveSpeed, 0);
+        }
     }
 
     public void StartGame() // Triggered by EnterPlayingState or the Ball's LaunchingBall event

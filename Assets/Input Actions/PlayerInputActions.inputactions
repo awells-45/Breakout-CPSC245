@@ -7,12 +7,12 @@
             "actions": [
                 {
                     "name": "Move Paddle Left",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "b3cd9f6e-b0b8-4123-b4c9-c9d97ae3a57d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Move Paddle Right",
