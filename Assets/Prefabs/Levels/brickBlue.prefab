@@ -97,7 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e43393a91bb946509eb0cabaeebdde6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brick: {fileID: 0}
   levelLoadManager: {fileID: 0}
   image: {fileID: 0}
 --- !u!61 &-8736261575528686179
@@ -146,4 +145,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
