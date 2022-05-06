@@ -27,7 +27,7 @@ public class Brick : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        
+
     }
 
     private void Start()
@@ -50,16 +50,16 @@ public class Brick : MonoBehaviour
     public void HandleCollision()
     {
         //send event
-            if (ChangeScoreEvent != null)
-            {
-                ChangeScoreEvent();
-            }
-            // set the brick to inactive
-            HideBrick();
-            
-            // update the number of active bricks
-            //levelLoadManager.DecrementActiveBricks();
-            objectPool.amountActive--;
+        if (ChangeScoreEvent != null)
+        {
+            ChangeScoreEvent();
+        }
+        // set the brick to inactive
+        HideBrick();
+
+        // update the number of active bricks
+        //levelLoadManager.DecrementActiveBricks();
+        objectPool.DecrementActiveBricks();
     }
 
     // sets the brick to active in the scene
@@ -67,7 +67,7 @@ public class Brick : MonoBehaviour
     {
         gameObject.SetActive(true);
     }
-    
+
     // sets the brick to inactive in the scene
     private void HideBrick()
     {
@@ -80,7 +80,7 @@ public class Brick : MonoBehaviour
         SetBrickLocation(location);
         SetBrickSprite(newImage);
     }
-    
+
     // places the brick to its correct position in the level given the transform position
     private void SetBrickLocation(Vector2 location)
     {
@@ -94,5 +94,5 @@ public class Brick : MonoBehaviour
         image = newImage;
         spriteRenderer.sprite = image;
     }
-    
+
 }

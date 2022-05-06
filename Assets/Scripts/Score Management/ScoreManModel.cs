@@ -12,7 +12,7 @@ public class ScoreManModel : MonoBehaviour
     //SCORE MAN MODEL, THIS STORES LIVES AND SCORED AND CHANGES BASED ON THAT
     private ScoreManView ScoreManView;
 
-    public delegate void GameOver();
+    public delegate void GameOver(State NewState);
     public static event GameOver GameOverEvent;
 
     private float Score = 0.0f;
@@ -36,8 +36,9 @@ public class ScoreManModel : MonoBehaviour
         ScoreManView.UpdateLivesText(BallLives.ToString());
     }
 
-    public void IncreaseScore(){ //called from controller
-        Score = Score + DefaultIncreaseAmount*ScoreMultiplier;
+    public void IncreaseScore()
+    { //called from controller
+        Score = Score + DefaultIncreaseAmount * ScoreMultiplier;
         ScoreMultiplier = ScoreMultiplier + .1f;
         ScoreManView.UpdateScoreText(Score.ToString());
     }
@@ -49,15 +50,16 @@ public class ScoreManModel : MonoBehaviour
         ScoreManView.UpdateScoreText(Score.ToString());
         ScoreManView.UpdateLivesText(BallLives.ToString());
     }
-    public void LoseLife(){ //called from controller
+    public void LoseLife()
+    { //called from controller
         BallLives = BallLives - 1;
         ScoreMultiplier = 1.0f;
-        if(BallLives == 0)
+        if (BallLives == 0)
         {
             //Set Gamestate to lost; BROADCASTS OUT A EVENT THAT CAN BE READ TO CHANGE STATE. NEEDS TO BE IMPLEMENTED
             if (GameOverEvent != null)
             {
-                GameOverEvent();
+                GameOverEvent(State.Lost);
             }
             else
             {

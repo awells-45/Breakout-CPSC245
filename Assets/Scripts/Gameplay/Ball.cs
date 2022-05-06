@@ -5,18 +5,26 @@ using UnityEngine.InputSystem;
 public class Ball : MonoBehaviour
 {
     public PlayerInputActions playerInputs;
-    
-    private Vector3 startingVelocity = new Vector3(5,5 ,0);
+
+    private Vector3 startingVelocity = new Vector3(5, 5, 0);
     private Rigidbody2D rigidBody;
 
-    private void Awake() {
+    private void Awake()
+    {
         this.rigidBody = this.GetComponent<Rigidbody2D>();
         playerInputs = new PlayerInputActions();
     }
 
     public void LaunchBall(InputAction.CallbackContext callback)
     {
+        //NOTE: This is a temporary solution. This fixes a bug where you can continuously press space to reset the ball's velocity
+        // if (this.GetComponent<Rigidbody2D>().velocity > 0.01f)
+        if (Mathf.Abs(rigidBody.velocity.x) + Mathf.Abs(rigidBody.velocity.y) > 0.01f)
+        {
+            return;
+        }
         RandomizeLaunchVelocity();
+
         rigidBody.velocity = startingVelocity;
     }
 
@@ -25,16 +33,16 @@ public class Ball : MonoBehaviour
         GameStateLoadLevel.LoadLevelStateBegin += KillBall;
         Killzone.KillBallCollision += KillBall;
         playerInputs.Player.LaunchBall.performed += LaunchBall;
-        
+
         playerInputs.Player.LaunchBall.Enable();
     }
-    
+
     private void OnDisable()
     {
         GameStateLoadLevel.LoadLevelStateBegin -= KillBall;
         Killzone.KillBallCollision -= KillBall;
         playerInputs.Player.LaunchBall.performed -= LaunchBall;
-        
+
         playerInputs.Player.LaunchBall.Disable();
     }
 
@@ -48,10 +56,10 @@ public class Ball : MonoBehaviour
     {
         rigidBody.velocity = Vector2.zero;
     }
-    
+
     private void ResetBall()
     {
-        this.transform.position = new Vector3(0, 0 ,0);
+        this.transform.position = new Vector3(0, 0, 0);
     }
 
     private void RandomizeLaunchVelocity()
@@ -66,9 +74,9 @@ public class Ball : MonoBehaviour
         {
             xDirection = -1;
         }
-        float xVelocity = xDirection*4 - xDirection*Random.value*1.75f;
+        float xVelocity = xDirection * 4 - xDirection * Random.value * 1.75f;
         float yVelocity = 4;
-        Vector3 randomVelocity = new Vector3(xVelocity ,yVelocity);
+        Vector3 randomVelocity = new Vector3(xVelocity, yVelocity);
         startingVelocity = randomVelocity;
     }
 

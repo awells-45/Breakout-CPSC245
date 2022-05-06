@@ -26,6 +26,10 @@ public class ObjectPool : MonoBehaviour
     public int amountToPool;
     public int amountActive;
 
+    public delegate void AllBricksDestroyed();
+    public static event AllBricksDestroyed OnObjectPoolEmpty;
+
+
 
     // creates a singleton named sharedInstance
     private void Awake()
@@ -84,5 +88,22 @@ public class ObjectPool : MonoBehaviour
             amountActive++;
         }
 
+    }
+
+    private void ObjectPoolEmpty()
+    {
+        if (OnObjectPoolEmpty != null)
+        {
+            OnObjectPoolEmpty();
+        }
+    }
+
+    public void DecrementActiveBricks()
+    {
+        amountActive--;
+        if (amountActive < 1)
+        {
+            ObjectPoolEmpty();
+        }
     }
 }
