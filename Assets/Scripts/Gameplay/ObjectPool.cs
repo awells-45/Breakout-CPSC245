@@ -26,7 +26,7 @@ public class ObjectPool : MonoBehaviour
     public int amountToPool;
     public int amountActive;
 
-    public delegate void AllBricksDestroyed();
+    public delegate void AllBricksDestroyed(State NewState);
     public static event AllBricksDestroyed OnObjectPoolEmpty;
 
 
@@ -94,7 +94,7 @@ public class ObjectPool : MonoBehaviour
     {
         if (OnObjectPoolEmpty != null)
         {
-            OnObjectPoolEmpty();
+            OnObjectPoolEmpty(State.LoadLevel);
         }
     }
 

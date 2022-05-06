@@ -43,7 +43,9 @@ public class GameManager : MonoBehaviour
         TestButtons.WinScreenStart += ChangeToNewState;
         // TestButtons.WinScreenEnd += ChangeToNewState;
         LevelLoadManager.OnLevelLoad += ChangeToNewState;
+        LevelLoadManager.OnAllLevelscComplete += ChangeToNewState;
         ScoreManModel.GameOverEvent += ChangeToNewState;
+        ObjectPool.OnObjectPoolEmpty += ChangeToNewState;
     }
 
     // Contains all the unsubscriptions to events that will cause state transitions
@@ -66,7 +68,9 @@ public class GameManager : MonoBehaviour
         TestButtons.WinScreenStart -= ChangeToNewState;
         // TestButtons.WinScreenEnd -= ChangeToNewState;
         LevelLoadManager.OnLevelLoad -= ChangeToNewState;
+        LevelLoadManager.OnAllLevelscComplete -= ChangeToNewState;
         ScoreManModel.GameOverEvent -= ChangeToNewState;
+        ObjectPool.OnObjectPoolEmpty -= ChangeToNewState;
 
     }
 
