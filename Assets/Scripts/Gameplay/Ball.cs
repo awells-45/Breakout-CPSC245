@@ -59,7 +59,7 @@ public class Ball : MonoBehaviour
 
     private void ResetBall()
     {
-        this.transform.position = new Vector3(0, 0, 0);
+        this.transform.position = new Vector3(0, -1.92f, 0);
     }
 
     private void RandomizeLaunchVelocity()
