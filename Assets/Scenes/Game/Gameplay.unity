@@ -1544,6 +1544,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreText: {fileID: 1787681313}
   LivesText: {fileID: 1410932247}
+  WinGameScoreText: {fileID: 0}
+  LoseGameScoreText: {fileID: 0}
 --- !u!114 &1513710483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2165,6 +2167,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8054477944118168313, guid: 11638952f1b1a9948be925af4ddcbf44, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8054477944132591056, guid: 11638952f1b1a9948be925af4ddcbf44, type: 3}
+      propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8054477944132591070, guid: 11638952f1b1a9948be925af4ddcbf44, type: 3}
