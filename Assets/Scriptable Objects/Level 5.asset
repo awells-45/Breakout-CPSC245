@@ -14,5 +14,147 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelSoundtrack: {fileID: 0}
   bricks:
+  - brickTransform: {x: -8, y: 3.5}
+    brickSprite: {fileID: 21300000, guid: c475bbc7cd70e934a898ccd6def4d6f6, type: 3}
+  - brickTransform: {x: -7, y: 3.5}
+    brickSprite: {fileID: 21300000, guid: c475bbc7cd70e934a898ccd6def4d6f6, type: 3}
+  - brickTransform: {x: -8, y: 2.85}
+    brickSprite: {fileID: 21300000, guid: c475bbc7cd70e934a898ccd6def4d6f6, type: 3}
+  - brickTransform: {x: -7, y: 2.85}
+    brickSprite: {fileID: 21300000, guid: c475bbc7cd70e934a898ccd6def4d6f6, type: 3}
+  - brickTransform: {x: -4.8, y: 3.78}
+    brickSprite: {fileID: 21300000, guid: c475bbc7cd70e934a898ccd6def4d6f6, type: 3}
+  - brickTransform: {x: -3.8, y: 3.78}
+    brickSprite: {fileID: 21300000, guid: c475bbc7cd70e934a898ccd6def4d6f6, type: 3}
+  - brickTransform: {x: -4.8, y: 3.13}
+    brickSprite: {fileID: 21300000, guid: c475bbc7cd70e934a898ccd6def4d6f6, type: 3}
+  - brickTransform: {x: -3.8, y: 3.13}
+    brickSprite: {fileID: 21300000, guid: c475bbc7cd70e934a898ccd6def4d6f6, type: 3}
   - brickTransform: {x: 0, y: 3.5}
-    brickSprite: {fileID: 21300000, guid: 082ff77edbb16430887975f7de543e4c, type: 3}
+    brickSprite: {fileID: 21300000, guid: c475bbc7cd70e934a898ccd6def4d6f6, type: 3}
+  - brickTransform: {x: 0, y: 2.85}
+    brickSprite: {fileID: 21300000, guid: c475bbc7cd70e934a898ccd6def4d6f6, type: 3}
+  - brickTransform: {x: 3.8, y: 3.78}
+    brickSprite: {fileID: 21300000, guid: c475bbc7cd70e934a898ccd6def4d6f6, type: 3}
+  - brickTransform: {x: 4.8, y: 3.78}
+    brickSprite: {fileID: 21300000, guid: c475bbc7cd70e934a898ccd6def4d6f6, type: 3}
+  - brickTransform: {x: 3.8, y: 3.13}
+    brickSprite: {fileID: 21300000, guid: c475bbc7cd70e934a898ccd6def4d6f6, type: 3}
+  - brickTransform: {x: 4.8, y: 3.13}
+    brickSprite: {fileID: 21300000, guid: c475bbc7cd70e934a898ccd6def4d6f6, type: 3}
+  - brickTransform: {x: 8, y: 3.5}
+    brickSprite: {fileID: 21300000, guid: c475bbc7cd70e934a898ccd6def4d6f6, type: 3}
+  - brickTransform: {x: 7, y: 3.5}
+    brickSprite: {fileID: 21300000, guid: c475bbc7cd70e934a898ccd6def4d6f6, type: 3}
+  - brickTransform: {x: 8, y: 2.85}
+    brickSprite: {fileID: 21300000, guid: c475bbc7cd70e934a898ccd6def4d6f6, type: 3}
+  - brickTransform: {x: 7, y: 2.85}
+    brickSprite: {fileID: 21300000, guid: c475bbc7cd70e934a898ccd6def4d6f6, type: 3}
+  - brickTransform: {x: -8, y: 2}
+    brickSprite: {fileID: 21300000, guid: d78ce133278312049a9f1d393f0a418d, type: 3}
+  - brickTransform: {x: -7, y: 2}
+    brickSprite: {fileID: 21300000, guid: d78ce133278312049a9f1d393f0a418d, type: 3}
+  - brickTransform: {x: -8, y: 1.35}
+    brickSprite: {fileID: 21300000, guid: d78ce133278312049a9f1d393f0a418d, type: 3}
+  - brickTransform: {x: -7, y: 1.35}
+    brickSprite: {fileID: 21300000, guid: d78ce133278312049a9f1d393f0a418d, type: 3}
+  - brickTransform: {x: -4.8, y: 2.28}
+    brickSprite: {fileID: 21300000, guid: d78ce133278312049a9f1d393f0a418d, type: 3}
+  - brickTransform: {x: -3.8, y: 2.28}
+    brickSprite: {fileID: 21300000, guid: d78ce133278312049a9f1d393f0a418d, type: 3}
+  - brickTransform: {x: -4.8, y: 1.63}
+    brickSprite: {fileID: 21300000, guid: d78ce133278312049a9f1d393f0a418d, type: 3}
+  - brickTransform: {x: -3.8, y: 1.63}
+    brickSprite: {fileID: 21300000, guid: d78ce133278312049a9f1d393f0a418d, type: 3}
+  - brickTransform: {x: 0, y: 2}
+    brickSprite: {fileID: 21300000, guid: d78ce133278312049a9f1d393f0a418d, type: 3}
+  - brickTransform: {x: 0, y: 1.35}
+    brickSprite: {fileID: 21300000, guid: d78ce133278312049a9f1d393f0a418d, type: 3}
+  - brickTransform: {x: 4.8, y: 2.28}
+    brickSprite: {fileID: 21300000, guid: d78ce133278312049a9f1d393f0a418d, type: 3}
+  - brickTransform: {x: 4.8, y: 1.63}
+    brickSprite: {fileID: 21300000, guid: d78ce133278312049a9f1d393f0a418d, type: 3}
+  - brickTransform: {x: 3.8, y: 2.28}
+    brickSprite: {fileID: 21300000, guid: d78ce133278312049a9f1d393f0a418d, type: 3}
+  - brickTransform: {x: 3.8, y: 1.63}
+    brickSprite: {fileID: 21300000, guid: d78ce133278312049a9f1d393f0a418d, type: 3}
+  - brickTransform: {x: 8, y: 2}
+    brickSprite: {fileID: 21300000, guid: d78ce133278312049a9f1d393f0a418d, type: 3}
+  - brickTransform: {x: 7, y: 2}
+    brickSprite: {fileID: 21300000, guid: d78ce133278312049a9f1d393f0a418d, type: 3}
+  - brickTransform: {x: 8, y: 1.35}
+    brickSprite: {fileID: 21300000, guid: d78ce133278312049a9f1d393f0a418d, type: 3}
+  - brickTransform: {x: 7, y: 1.35}
+    brickSprite: {fileID: 21300000, guid: d78ce133278312049a9f1d393f0a418d, type: 3}
+  - brickTransform: {x: -8, y: 0.5}
+    brickSprite: {fileID: 21300000, guid: da29b3b1e895adf4885ee199e5d5e0ca, type: 3}
+  - brickTransform: {x: -7, y: 0.5}
+    brickSprite: {fileID: 21300000, guid: da29b3b1e895adf4885ee199e5d5e0ca, type: 3}
+  - brickTransform: {x: -8, y: -0.15}
+    brickSprite: {fileID: 21300000, guid: da29b3b1e895adf4885ee199e5d5e0ca, type: 3}
+  - brickTransform: {x: -7, y: -0.15}
+    brickSprite: {fileID: 21300000, guid: da29b3b1e895adf4885ee199e5d5e0ca, type: 3}
+  - brickTransform: {x: -4.8, y: 0.78}
+    brickSprite: {fileID: 21300000, guid: da29b3b1e895adf4885ee199e5d5e0ca, type: 3}
+  - brickTransform: {x: -3.8, y: 0.78}
+    brickSprite: {fileID: 21300000, guid: da29b3b1e895adf4885ee199e5d5e0ca, type: 3}
+  - brickTransform: {x: -4.8, y: 0.13}
+    brickSprite: {fileID: 21300000, guid: da29b3b1e895adf4885ee199e5d5e0ca, type: 3}
+  - brickTransform: {x: -3.8, y: 0.13}
+    brickSprite: {fileID: 21300000, guid: da29b3b1e895adf4885ee199e5d5e0ca, type: 3}
+  - brickTransform: {x: 0, y: 0.5}
+    brickSprite: {fileID: 21300000, guid: da29b3b1e895adf4885ee199e5d5e0ca, type: 3}
+  - brickTransform: {x: 0, y: -0.15}
+    brickSprite: {fileID: 21300000, guid: da29b3b1e895adf4885ee199e5d5e0ca, type: 3}
+  - brickTransform: {x: 4.8, y: 0.78}
+    brickSprite: {fileID: 21300000, guid: da29b3b1e895adf4885ee199e5d5e0ca, type: 3}
+  - brickTransform: {x: 4.8, y: 0.13}
+    brickSprite: {fileID: 21300000, guid: da29b3b1e895adf4885ee199e5d5e0ca, type: 3}
+  - brickTransform: {x: 3.8, y: 0.78}
+    brickSprite: {fileID: 21300000, guid: da29b3b1e895adf4885ee199e5d5e0ca, type: 3}
+  - brickTransform: {x: 3.8, y: 0.13}
+    brickSprite: {fileID: 21300000, guid: da29b3b1e895adf4885ee199e5d5e0ca, type: 3}
+  - brickTransform: {x: 8, y: 0.5}
+    brickSprite: {fileID: 21300000, guid: da29b3b1e895adf4885ee199e5d5e0ca, type: 3}
+  - brickTransform: {x: 7, y: 0.5}
+    brickSprite: {fileID: 21300000, guid: da29b3b1e895adf4885ee199e5d5e0ca, type: 3}
+  - brickTransform: {x: 8, y: -0.15}
+    brickSprite: {fileID: 21300000, guid: da29b3b1e895adf4885ee199e5d5e0ca, type: 3}
+  - brickTransform: {x: 7, y: -0.15}
+    brickSprite: {fileID: 21300000, guid: da29b3b1e895adf4885ee199e5d5e0ca, type: 3}
+  - brickTransform: {x: -8, y: -1}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
+  - brickTransform: {x: -7, y: -1}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
+  - brickTransform: {x: -8, y: -1.65}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
+  - brickTransform: {x: -7, y: -1.65}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
+  - brickTransform: {x: -4.8, y: -0.72}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
+  - brickTransform: {x: -3.8, y: -0.72}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
+  - brickTransform: {x: -4.8, y: -1.37}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
+  - brickTransform: {x: -3.8, y: -1.37}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
+  - brickTransform: {x: 0, y: -1}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
+  - brickTransform: {x: 0, y: -1.65}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
+  - brickTransform: {x: 4.8, y: -0.72}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
+  - brickTransform: {x: 3.8, y: -0.72}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
+  - brickTransform: {x: 4.8, y: -1.37}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
+  - brickTransform: {x: 3.8, y: -1.37}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
+  - brickTransform: {x: 8, y: -1}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
+  - brickTransform: {x: 7, y: -1}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
+  - brickTransform: {x: 8, y: -1.65}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
+  - brickTransform: {x: 7, y: -1.65}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
