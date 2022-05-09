@@ -207,6 +207,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas_ResultsMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 6193361102260300498, guid: 8391a9f4e8c450f4fa56bb01fbd912f7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6193361102260300501, guid: 8391a9f4e8c450f4fa56bb01fbd912f7, type: 3}
       propertyPath: m_Camera
       value: 
@@ -402,7 +406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7536709215140459357, guid: 508d09848b8bfcc4db5c830ff8019ee0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7536709215140459358, guid: 508d09848b8bfcc4db5c830ff8019ee0, type: 3}
       propertyPath: m_Camera
