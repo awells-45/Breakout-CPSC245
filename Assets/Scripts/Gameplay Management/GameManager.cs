@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
         // TestButtons.LoseScreenEnd += ChangeToNewState;
         TestButtons.WinScreenStart += ChangeToNewState;
         // TestButtons.WinScreenEnd += ChangeToNewState;
+        LevelLoadManager.OnLevelLoad += ChangeToNewState;
+        LevelLoadManager.OnAllLevelscComplete += ChangeToNewState;
+        ScoreManModel.GameOverEvent += ChangeToNewState;
+        ObjectPool.OnObjectPoolEmpty += ChangeToNewState;
+        Pause.OnPause += ChangeToNewState;
     }
 
     // Contains all the unsubscriptions to events that will cause state transitions
@@ -54,7 +59,7 @@ public class GameManager : MonoBehaviour
         // TestUI.Pause -= ChangeToNewState;
         // TestUI.Playing -= ChangeToNewState;
         // TestUI.Won -= ChangeToNewState;
-        
+
         TestButtons.MainMenuStart -= ChangeToNewState;
         TestButtons.MainMenuEnd -= ChangeToNewState;
         TestButtons.PauseMenuStart -= ChangeToNewState;
@@ -63,6 +68,11 @@ public class GameManager : MonoBehaviour
         // TestButtons.LoseScreenEnd -= ChangeToNewState;
         TestButtons.WinScreenStart -= ChangeToNewState;
         // TestButtons.WinScreenEnd -= ChangeToNewState;
+        LevelLoadManager.OnLevelLoad -= ChangeToNewState;
+        LevelLoadManager.OnAllLevelscComplete -= ChangeToNewState;
+        ScoreManModel.GameOverEvent -= ChangeToNewState;
+        ObjectPool.OnObjectPoolEmpty -= ChangeToNewState;
+        Pause.OnPause -= ChangeToNewState;
     }
 
     // Method that takes in an enum relaying to each state, checks the enum, and changes to the current state
@@ -76,26 +86,32 @@ public class GameManager : MonoBehaviour
         {
             // If lose state, change current state to LostState
             case State.Lost:
+                Debug.Log("Enter lost state");
                 currentState = LostState;
                 break;
             // If pause state, change current state to PauseState
             case State.Pause:
+                Debug.Log("Enter pause state");
                 currentState = PauseState;
                 break;
             // If playing state, change current state to PlayingState
             case State.Playing:
+                Debug.Log("Enter playing state");
                 currentState = PlayingState;
                 break;
             // If won state, change current state to WonState
             case State.Won:
+                Debug.Log("Enter won state");
                 currentState = WonState;
                 break;
             // If load level state, change current state to LoadLevelState
             case State.LoadLevel:
+                Debug.Log("Enter load level state");
                 currentState = LoadLevelState;
                 break;
             // If main menu state, change current state to MainMenuState
             case State.MainMenu:
+                Debug.Log("Enter main menu state");
                 currentState = MainMenuState;
                 break;
             // Should never occur, but if reaches default log an error
@@ -103,7 +119,7 @@ public class GameManager : MonoBehaviour
                 Debug.LogError("Error on ChangeToNewState");
                 break;
         }
-        
+
         // Call the current state's OnEnterEvent
         currentState.OnStateEntered();
     }

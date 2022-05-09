@@ -65,6 +65,6 @@ public class Paddle : MonoBehaviour
 
     public void ResetPaddle() 
     {
-        this.transform.position = new Vector3(0, -2.4f, 0);
+        this.transform.position = new Vector3(0, -2.82f, 0);
     }
 }

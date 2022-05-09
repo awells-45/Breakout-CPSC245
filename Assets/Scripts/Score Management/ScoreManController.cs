@@ -13,7 +13,7 @@ public class ScoreManController : MonoBehaviour
     {
         scoreManMod.initData();
     }
-    
+
     public void ChangeScore()//makeshift method that links to button and increases score
     {
         scoreManMod.IncreaseScore();
@@ -24,21 +24,25 @@ public class ScoreManController : MonoBehaviour
         scoreManMod.LoseLife();
     }
     //ChangeScore is a placeholder event name called fr Brick, ChangeLives is a placeholder event name called from Ball
-    
+
     // THIS NEEDS TO PROPELY WORK AND CALLL RESPECTIVE METHODS WHEN IMPLEMENTED BASED ON PUB SUB
-    private void Awake(){
+    private void Awake()
+    {
         scoreManMod = GetComponent<ScoreManModel>();
+        print("Init Data Called");
         // Ball.ChangeLives += scoreManMod.LoseLife;
         scoreManMod.initData();
     }
 
     private void OnEnable()
     {
+        Killzone.KillBallCollision += scoreManMod.LoseLife;
         Brick.ChangeScoreEvent += scoreManMod.IncreaseScore;
     }
 
     private void OnDisable()
     {
+        Killzone.KillBallCollision -= scoreManMod.LoseLife;
         Brick.ChangeScoreEvent -= scoreManMod.IncreaseScore;
     }
 }

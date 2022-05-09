@@ -31,12 +31,26 @@ public class LevelLoadManager : MonoBehaviour
     // Once above code is added, "yourFunctionHere" will be called every time the "OnLevelCompleted" event occurs
 
     public static LevelLoadManager sharedInstance;
-    
+
     public int activeBricks = 0;
     public int numToPool;
     public Level[] levels;
-    public int currentLevel = 0;
+    public int nextLevel = 0;
     public ObjectPool objectPool;
+    public delegate void LoadLevelCompleted(State NewState);
+    public static event LoadLevelCompleted OnLevelLoad;
+    public static event LoadLevelCompleted OnAllLevelscComplete;
+
+    private void OnEnable()
+    {
+        GameStateLoadLevel.LoadLevelStateBegin += LoadLevel;
+    }
+
+    private void OnDisable()
+    {
+        GameStateLoadLevel.LoadLevelStateBegin -= LoadLevel;
+    }
+
 
     // creates the object pool and sets the amount of bricks needed to pool
     private void Awake()
@@ -52,19 +66,33 @@ public class LevelLoadManager : MonoBehaviour
     }
 
 
-    // Loads the current level, then adds 1 to currentLevel to load the next level next time
+    // Loads the current level, then adds 1 to nextLevel to load the next level next time
     public void LoadLevel()
     {
-        Debug.Log(currentLevel);
-        Level level = levels[currentLevel];
-        currentLevel += 1;
-        if (currentLevel == levels.Length)
+        Debug.Log(nextLevel);
+        if (nextLevel >= levels.Length)
         {
-            currentLevel = 0;
+            // nextLevel = 0;
+            if (OnAllLevelscComplete != null)
+            {
+                nextLevel = 0;
+                OnAllLevelscComplete(State.Won);
+            }
+            return;
         }
+        Level level = levels[nextLevel];
+
+
         Debug.Log(objectPool);
         objectPool.PlaceBricks(getBrickLocations(level), getBrickSprites(level));
         activeBricks = level.bricks.Count;
+
+        if (OnLevelLoad != null)
+        {
+            OnLevelLoad(State.Playing);
+
+        }
+        nextLevel += 1;
     }
 
     // Decrements the amount of active bricks (presumably when a brick gets hit)
@@ -85,7 +113,7 @@ public class LevelLoadManager : MonoBehaviour
     public void Reset()
     {
         objectPool.Reset();
-        currentLevel = 0;
+        nextLevel = 0;
         LoadLevel();
     }
 
