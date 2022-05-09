@@ -43,10 +43,12 @@ public class ScoreManModel : MonoBehaviour
         ScoreManView.UpdateScoreText(Score.ToString());
     }
 
-    private void ResetScore() //Called when a life is lost and its == 0 in LoseLife()
+    public void ResetScore() //Called when a life is lost and its == 0 in LoseLife()
     {
         Score = 0;
+        ScoreMultiplier = 1.0f;
         BallLives = StartingBallLives;
+        
         ScoreManView.UpdateScoreText(Score.ToString());
         ScoreManView.UpdateLivesText(BallLives.ToString());
     }
@@ -56,7 +58,7 @@ public class ScoreManModel : MonoBehaviour
         ScoreMultiplier = 1.0f;
         if (BallLives == 0)
         {
-            //Set Gamestate to lost; BROADCASTS OUT A EVENT THAT CAN BE READ TO CHANGE STATE. NEEDS TO BE IMPLEMENTED
+            //Set Gamestate to lost; BROADCASTS OUT A EVENT THAT CAN BE READ TO CHANGE STATE
             if (GameOverEvent != null)
             {
                 GameOverEvent(State.Lost);
@@ -65,7 +67,8 @@ public class ScoreManModel : MonoBehaviour
             {
                 print("Nothing is subscribed to Game Over Event In Score Model");
             }
-            ResetScore();
+            //ResetScore(); theroretically if the game always goes to main menu when losing then reset
+            //"SHOULD" get called from event
         }
         ScoreManView.UpdateLivesText(BallLives.ToString());
     }

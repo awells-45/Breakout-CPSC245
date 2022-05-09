@@ -36,12 +36,14 @@ public class ScoreManController : MonoBehaviour
 
     private void OnEnable()
     {
+        GameStateMainMenu.MainMenuStateBegin += scoreManMod.ResetScore;
         Killzone.KillBallCollision += scoreManMod.LoseLife;
         Brick.ChangeScoreEvent += scoreManMod.IncreaseScore;
     }
 
     private void OnDisable()
     {
+        GameStateMainMenu.MainMenuStateBegin -= scoreManMod.ResetScore;
         Killzone.KillBallCollision -= scoreManMod.LoseLife;
         Brick.ChangeScoreEvent -= scoreManMod.IncreaseScore;
     }

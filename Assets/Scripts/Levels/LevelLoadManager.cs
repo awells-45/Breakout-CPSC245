@@ -44,11 +44,13 @@ public class LevelLoadManager : MonoBehaviour
     private void OnEnable()
     {
         GameStateLoadLevel.LoadLevelStateBegin += LoadLevel;
+        GameStateMainMenu.MainMenuStateBegin += Reset;
     }
 
     private void OnDisable()
     {
         GameStateLoadLevel.LoadLevelStateBegin -= LoadLevel;
+        GameStateMainMenu.MainMenuStateBegin -= Reset;
     }
 
 
@@ -114,7 +116,7 @@ public class LevelLoadManager : MonoBehaviour
     {
         objectPool.Reset();
         nextLevel = 0;
-        LoadLevel();
+        //LoadLevel();
     }
 
     // Goes through each brick in the level and creates a list of their positions, then returns that list
