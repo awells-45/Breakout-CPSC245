@@ -75,6 +75,7 @@ public class LevelLoadManager : MonoBehaviour
             // nextLevel = 0;
             if (OnAllLevelscComplete != null)
             {
+                nextLevel = 0;
                 OnAllLevelscComplete(State.Won);
             }
             return;

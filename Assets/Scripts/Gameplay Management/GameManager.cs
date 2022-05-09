@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
         LevelLoadManager.OnAllLevelscComplete += ChangeToNewState;
         ScoreManModel.GameOverEvent += ChangeToNewState;
         ObjectPool.OnObjectPoolEmpty += ChangeToNewState;
+        Pause.OnPause += ChangeToNewState;
     }
 
     // Contains all the unsubscriptions to events that will cause state transitions
@@ -71,7 +72,7 @@ public class GameManager : MonoBehaviour
         LevelLoadManager.OnAllLevelscComplete -= ChangeToNewState;
         ScoreManModel.GameOverEvent -= ChangeToNewState;
         ObjectPool.OnObjectPoolEmpty -= ChangeToNewState;
-
+        Pause.OnPause -= ChangeToNewState;
     }
 
     // Method that takes in an enum relaying to each state, checks the enum, and changes to the current state
