@@ -24,6 +24,11 @@ public class Ball : MonoBehaviour
         {
             return;
         }
+
+        if (Time.timeScale < 0.9f) // check that game is not frozen
+        {
+            return;
+        }
         RandomizeLaunchVelocity();
 
         rigidBody.velocity = startingVelocity;

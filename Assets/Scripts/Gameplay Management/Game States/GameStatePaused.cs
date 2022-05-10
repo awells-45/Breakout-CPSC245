@@ -18,8 +18,6 @@ public class GameStatePaused : GameState
         {
             // Behavior dependent on Paused state entering will subscribe to this broadcast
             PauseStateBegin();
-
-            Time.timeScale = 0.0f;
         }
     }
 
@@ -31,7 +29,6 @@ public class GameStatePaused : GameState
         {
             // Behavior dependent on Paused state exiting will subscribe to this broadcast
             PauseStateEnd();
-            Time.timeScale = 1.0f;
         }
     }
 }

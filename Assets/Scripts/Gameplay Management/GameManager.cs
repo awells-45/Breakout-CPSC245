@@ -80,6 +80,8 @@ public class GameManager : MonoBehaviour
     {
         // Call the current state's OnExitEvent
         currentState.OnStateExited();
+        
+        Time.timeScale = 0.0f; // freeze the game
 
         // Switch statement to check the enum
         switch (newState)
@@ -96,6 +98,7 @@ public class GameManager : MonoBehaviour
                 break;
             // If playing state, change current state to PlayingState
             case State.Playing:
+                Time.timeScale = 1.0f; // unfreeze the game
                 Debug.Log("Enter playing state");
                 currentState = PlayingState;
                 break;
