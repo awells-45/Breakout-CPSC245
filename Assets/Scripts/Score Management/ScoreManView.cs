@@ -13,8 +13,8 @@ public class ScoreManView : MonoBehaviour
     
     public void UpdateScoreText(string updateScore){
         ScoreText.text = updateScore;
-        WinGameScoreText.text = updateScore;
-        LoseGameScoreText.text = updateScore;
+        WinGameScoreText.text = "Your score: " + updateScore;
+        LoseGameScoreText.text = "Your score: " + updateScore;
     }
     public void UpdateLivesText(string updateLives){
         LivesText.text = updateLives;
