@@ -49,7 +49,10 @@ public class Paddle : MonoBehaviour
             this.rigidBody.velocity = Vector2.zero;
         }
         else if (callback.performed) {
-            this.rigidBody.velocity -= new Vector2(moveSpeed, 0);
+            if (!(this.transform.position.x <= -5.5)) // if paddle has reached left boundary
+            {
+                this.rigidBody.velocity -= new Vector2(moveSpeed, 0);
+            }
         }
     }
 
@@ -59,7 +62,10 @@ public class Paddle : MonoBehaviour
             this.rigidBody.velocity = Vector2.zero;
         }
         else if (callback.performed) {
-            this.rigidBody.velocity += new Vector2(moveSpeed, 0);
+            if (!(this.transform.position.x >= 5.5)) // if paddle has reached right boundary
+            {
+                this.rigidBody.velocity += new Vector2(moveSpeed, 0);
+            }
         }
     }
 

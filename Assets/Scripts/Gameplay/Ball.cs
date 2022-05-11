@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class Ball : MonoBehaviour
 {
     public PlayerInputActions playerInputs;
+    private float startingBallSpeed = 6.5f;
 
     private Vector3 startingVelocity = new Vector3(5, 5, 0);
     private Rigidbody2D rigidBody;
@@ -20,6 +21,11 @@ public class Ball : MonoBehaviour
         //NOTE: This is a temporary solution. This fixes a bug where you can continuously press space to reset the ball's velocity
         // if (this.GetComponent<Rigidbody2D>().velocity > 0.01f)
         if (Mathf.Abs(rigidBody.velocity.x) + Mathf.Abs(rigidBody.velocity.y) > 0.01f)
+        {
+            return;
+        }
+
+        if (Time.timeScale < 0.9f) // check that game is not frozen
         {
             return;
         }
@@ -77,7 +83,7 @@ public class Ball : MonoBehaviour
         float xVelocity = xDirection * 4 - xDirection * Random.value * 1.75f;
         float yVelocity = 4;
         Vector3 randomVelocity = new Vector3(xVelocity, yVelocity);
-        startingVelocity = randomVelocity;
+        startingVelocity = randomVelocity.normalized * startingBallSpeed;
     }
 
     private bool RandomizeXDirection()
