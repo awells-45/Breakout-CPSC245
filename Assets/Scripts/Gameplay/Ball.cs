@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using UnityEngine.InputSystem;
@@ -32,6 +33,18 @@ public class Ball : MonoBehaviour
         RandomizeLaunchVelocity();
 
         rigidBody.velocity = startingVelocity;
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "PaddleSides")
+        {
+            rigidBody.velocity = new Vector2(-1 * rigidBody.velocity.x, rigidBody.velocity.y);
+        }
+        else if (col.gameObject.tag == "PaddleTop")
+        {
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, -1 * rigidBody.velocity.y);
+        }
     }
 
     private void OnEnable()
