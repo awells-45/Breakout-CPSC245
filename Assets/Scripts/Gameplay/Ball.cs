@@ -35,6 +35,23 @@ public class Ball : MonoBehaviour
         rigidBody.velocity = startingVelocity;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        CheckAndFixStuck();
+    }
+
+    private void CheckAndFixStuck() // check if ball is stick moving horizontally or vertically, and give it a nudge if needed
+    {
+        if (Mathf.Abs(rigidBody.velocity.x) < 0.1f)
+        {
+            rigidBody.velocity = new Vector2(4, rigidBody.velocity.y);
+        }
+        if (Mathf.Abs(rigidBody.velocity.y) < 0.1f)
+        {
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, 4);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "PaddleSides")
