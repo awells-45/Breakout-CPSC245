@@ -140,8 +140,6 @@ MonoBehaviour:
     brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
   - brickTransform: {x: 0, y: -1}
     brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
-  - brickTransform: {x: 0, y: -1.65}
-    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
   - brickTransform: {x: 4.8, y: -0.72}
     brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
   - brickTransform: {x: 3.8, y: -0.72}
