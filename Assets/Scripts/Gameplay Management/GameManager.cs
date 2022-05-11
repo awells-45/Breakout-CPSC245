@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
         currentState = MainMenuState;
     }
 
+    private void Start()
+    {
+        currentState.OnStateEntered();
+    }
+
     // Contains the subscriptions to events that will cause state transitions, Ex: PlayButtonIsPressed in MainMenu
     private void OnEnable()
     {
