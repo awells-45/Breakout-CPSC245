@@ -1,24 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8242198787269552677
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b08d13ed71eeb1246a0bdade1da51276, type: 3}
-  m_Name: PixelationEffect
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    overrideState: 1
-    value: 1
-  Pixels:
-    overrideState: 1
-    value: 433
 --- !u!114 &-7401262913437990563
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -37,7 +18,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.96
+    value: 1.11
   threshold:
     overrideState: 1
     value: 0.13
@@ -81,8 +62,6 @@ MonoBehaviour:
   settings:
   - {fileID: -7401262913437990563}
   - {fileID: 1997290728621302077}
-  - {fileID: -8242198787269552677}
-  - {fileID: 7548427366330651482}
 --- !u!114 &1997290728621302077
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -98,57 +77,14 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 0
+    value: 1
   spectralLut:
     overrideState: 1
     value: {fileID: 0}
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.253
+    value: 0.1
   fastMode:
     overrideState: 0
-    value: 0
---- !u!114 &7548427366330651482
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d15455d5977d35478440d60be96f97a, type: 3}
-  m_Name: VHSEffect
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  NoiseLimit:
-    overrideState: 1
-    value: 0.5
-  DistortionOffset:
-    overrideState: 1
-    value: -0.03
-  NoiseScale:
-    overrideState: 1
-    value: 0.5
-  speed:
-    overrideState: 1
-    value: 0.92
-  NoisePower:
-    overrideState: 1
-    value: 0.94
-  NoiseStrength:
-    overrideState: 1
-    value: 0.5
-  RGBSeparation:
-    overrideState: 1
-    value: {x: 0.3, y: 0, z: 0}
-  ThresholdOption:
-    overrideState: 1
-    value: 0
-  Debug:
-    overrideState: 1
     value: 0
