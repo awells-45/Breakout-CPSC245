@@ -622,7 +622,7 @@ MonoBehaviour:
     SoundType: 
     Source: {fileID: 0}
     Volume: 0.264
-    Pitch: 0
+    Pitch: 1
     Loop: 0
     maxVolume: 0
   - Name: ButtonPress
@@ -630,7 +630,7 @@ MonoBehaviour:
     SoundType: 
     Source: {fileID: 0}
     Volume: 0.221
-    Pitch: 0
+    Pitch: 1
     Loop: 0
     maxVolume: 0
   - Name: PaddleHit1
@@ -638,7 +638,7 @@ MonoBehaviour:
     SoundType: 
     Source: {fileID: 0}
     Volume: 0.22
-    Pitch: 0
+    Pitch: 1
     Loop: 0
     maxVolume: 0
   - Name: PaddleHit2
@@ -646,7 +646,7 @@ MonoBehaviour:
     SoundType: 
     Source: {fileID: 0}
     Volume: 0.22
-    Pitch: 0
+    Pitch: 1
     Loop: 0
     maxVolume: 0
   - Name: MenuIntroNoDrums
@@ -654,7 +654,7 @@ MonoBehaviour:
     SoundType: 
     Source: {fileID: 0}
     Volume: 0.22
-    Pitch: 0
+    Pitch: 1
     Loop: 0
     maxVolume: 0
   - Name: MenuIntroDrums
@@ -662,7 +662,7 @@ MonoBehaviour:
     SoundType: 
     Source: {fileID: 0}
     Volume: 0.22
-    Pitch: 0
+    Pitch: 1
     Loop: 1
     maxVolume: 0
   - Name: MenuMainDrumsOnly
@@ -670,7 +670,7 @@ MonoBehaviour:
     SoundType: 
     Source: {fileID: 0}
     Volume: 0.22
-    Pitch: 0
+    Pitch: 1
     Loop: 1
     maxVolume: 0
   - Name: MenuMainNoDrums
@@ -678,7 +678,7 @@ MonoBehaviour:
     SoundType: 
     Source: {fileID: 0}
     Volume: 0.22
-    Pitch: 0
+    Pitch: 1
     Loop: 1
     maxVolume: 0
   - Name: MenuMainDrums
@@ -686,7 +686,7 @@ MonoBehaviour:
     SoundType: 
     Source: {fileID: 0}
     Volume: 0.22
-    Pitch: 0
+    Pitch: 1
     Loop: 1
     maxVolume: 0
 --- !u!1 &197353602

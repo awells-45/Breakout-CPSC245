@@ -54,6 +54,9 @@ public class Brick : MonoBehaviour
         {
             ChangeScoreEvent();
         }
+        // Play hit brick sound effect
+        AudioManager.Instance.Play("BrickHit");
+        
         // set the brick to inactive
         HideBrick();
 
