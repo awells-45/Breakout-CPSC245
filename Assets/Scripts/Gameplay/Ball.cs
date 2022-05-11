@@ -68,11 +68,15 @@ public class Ball : MonoBehaviour
         
         if (col.gameObject.tag == "PaddleSides")
         {
-            rigidBody.velocity = new Vector2(-1 * rigidBody.velocity.x, rigidBody.velocity.y);
+            rigidBody.velocity = new Vector2(-1.0f * rigidBody.velocity.x, rigidBody.velocity.y);
         }
         else if (col.gameObject.tag == "PaddleTop")
         {
-            rigidBody.velocity = new Vector2(rigidBody.velocity.x, -1 * rigidBody.velocity.y);
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, -1.0f * rigidBody.velocity.y);
+        }
+        else if (col.gameObject.tag == "PaddleDiag")
+        {
+            rigidBody.velocity = new Vector2(-1.0f * rigidBody.velocity.x, -1.0f * rigidBody.velocity.y);
         }
     }
 

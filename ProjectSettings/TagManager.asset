@@ -12,6 +12,7 @@ TagManager:
   - RightBoundary
   - PaddleSides
   - PaddleTop
+  - PaddleDiag
   layers:
   - Default
   - TransparentFX
