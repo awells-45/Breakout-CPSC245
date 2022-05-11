@@ -689,38 +689,6 @@ MonoBehaviour:
     Pitch: 0
     Loop: 1
     maxVolume: 0
-  - Name: PaddleHitWall
-    Clip: {fileID: 8300000, guid: beb6914f817a1410ea2bf8e554b8277a, type: 3}
-    SoundType: 
-    Source: {fileID: 0}
-    Volume: 0.22
-    Pitch: 0
-    Loop: 1
-    maxVolume: 0
-  - Name: Victory
-    Clip: {fileID: 8300000, guid: 32083a46d1ee24799b7a7f75dcebf788, type: 3}
-    SoundType: 
-    Source: {fileID: 0}
-    Volume: 0.22
-    Pitch: 0
-    Loop: 1
-    maxVolume: 0
-  - Name: BallLost
-    Clip: {fileID: 8300000, guid: 84a37b571697f4cafb803c81feb44f90, type: 3}
-    SoundType: 
-    Source: {fileID: 0}
-    Volume: 0.22
-    Pitch: 0
-    Loop: 1
-    maxVolume: 0
-  - Name: LaterLevelsMain
-    Clip: {fileID: 8300000, guid: 95dd4919586ad40b9b1dc97081b37416, type: 3}
-    SoundType: 
-    Source: {fileID: 0}
-    Volume: 0.22
-    Pitch: 0
-    Loop: 1
-    maxVolume: 0
 --- !u!1 &197353602
 GameObject:
   m_ObjectHideFlags: 0
