@@ -28,24 +28,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
             ""id"": ""2a50fbf7-64f0-4b32-bbd1-ebab7b3df3da"",
             ""actions"": [
                 {
-                    ""name"": ""Move Paddle Left"",
-                    ""type"": ""Value"",
-                    ""id"": ""b3cd9f6e-b0b8-4123-b4c9-c9d97ae3a57d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Move Paddle Right"",
-                    ""type"": ""Button"",
-                    ""id"": ""fec3d2dc-e460-4f6f-9753-853fa7a8f8cd"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Launch Ball"",
                     ""type"": ""Button"",
                     ""id"": ""5f65d155-c153-498a-a8c0-e97ab274d572"",
@@ -62,53 +44,18 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Move Paddle"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""784fc142-7dbf-4cb4-be77-f32846fab9b7"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""baa2758f-961b-473c-85cd-02564ba19957"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move Paddle Left"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7fd58ef7-98af-4251-9ffc-253f42dd8093"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move Paddle Left"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ffd7b8f1-dc38-44ee-8600-0c04cedfab5c"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move Paddle Right"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c4f48b54-7a59-42e1-8d18-599ed178d80e"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move Paddle Right"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""357cd57e-aaf2-4478-ae6b-f4e3e0eaa8f4"",
@@ -130,6 +77,83 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""a598abf9-3370-422e-8ec7-9409d95c7aba"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move Paddle"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""d9281df6-9c4c-4538-b44d-cd12d804d9b8"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move Paddle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""494e798b-dcaf-4bc3-91ac-8f1aeacfb195"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move Paddle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""fffe744d-cc33-4a3b-a343-4e64f7bbd93f"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move Paddle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""09d9152d-16a4-47ba-a10c-ccc21d1b30b2"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move Paddle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""32189607-cf40-4971-aab2-f31d9f1edd15"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move Paddle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""800e262f-e3b4-4956-ab6d-c6e731b8f9a3"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move Paddle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -208,10 +232,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_MovePaddleLeft = m_Player.FindAction("Move Paddle Left", throwIfNotFound: true);
-        m_Player_MovePaddleRight = m_Player.FindAction("Move Paddle Right", throwIfNotFound: true);
         m_Player_LaunchBall = m_Player.FindAction("Launch Ball", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_MovePaddle = m_Player.FindAction("Move Paddle", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_NavigateUp = m_Menu.FindAction("Navigate Up", throwIfNotFound: true);
@@ -275,18 +298,16 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_MovePaddleLeft;
-    private readonly InputAction m_Player_MovePaddleRight;
     private readonly InputAction m_Player_LaunchBall;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_MovePaddle;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @MovePaddleLeft => m_Wrapper.m_Player_MovePaddleLeft;
-        public InputAction @MovePaddleRight => m_Wrapper.m_Player_MovePaddleRight;
         public InputAction @LaunchBall => m_Wrapper.m_Player_LaunchBall;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @MovePaddle => m_Wrapper.m_Player_MovePaddle;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -296,34 +317,28 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @MovePaddleLeft.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovePaddleLeft;
-                @MovePaddleLeft.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovePaddleLeft;
-                @MovePaddleLeft.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovePaddleLeft;
-                @MovePaddleRight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovePaddleRight;
-                @MovePaddleRight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovePaddleRight;
-                @MovePaddleRight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovePaddleRight;
                 @LaunchBall.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLaunchBall;
                 @LaunchBall.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLaunchBall;
                 @LaunchBall.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLaunchBall;
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @MovePaddle.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovePaddle;
+                @MovePaddle.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovePaddle;
+                @MovePaddle.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovePaddle;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @MovePaddleLeft.started += instance.OnMovePaddleLeft;
-                @MovePaddleLeft.performed += instance.OnMovePaddleLeft;
-                @MovePaddleLeft.canceled += instance.OnMovePaddleLeft;
-                @MovePaddleRight.started += instance.OnMovePaddleRight;
-                @MovePaddleRight.performed += instance.OnMovePaddleRight;
-                @MovePaddleRight.canceled += instance.OnMovePaddleRight;
                 @LaunchBall.started += instance.OnLaunchBall;
                 @LaunchBall.performed += instance.OnLaunchBall;
                 @LaunchBall.canceled += instance.OnLaunchBall;
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @MovePaddle.started += instance.OnMovePaddle;
+                @MovePaddle.performed += instance.OnMovePaddle;
+                @MovePaddle.canceled += instance.OnMovePaddle;
             }
         }
     }
@@ -371,10 +386,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     public MenuActions @Menu => new MenuActions(this);
     public interface IPlayerActions
     {
-        void OnMovePaddleLeft(InputAction.CallbackContext context);
-        void OnMovePaddleRight(InputAction.CallbackContext context);
         void OnLaunchBall(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnMovePaddle(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
