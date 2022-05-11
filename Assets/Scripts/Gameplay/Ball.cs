@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 public class Ball : MonoBehaviour
 {
     public PlayerInputActions playerInputs;
+
+    public float nudgeAmount = 5;
+    
     private float startingBallSpeed = 6.5f;
 
     private Vector3 startingVelocity = new Vector3(5, 5, 0);
@@ -46,11 +49,11 @@ public class Ball : MonoBehaviour
     {
         if (Mathf.Abs(rigidBody.velocity.x) < 0.1f)
         {
-            rigidBody.velocity = new Vector2(4, rigidBody.velocity.y);
+            rigidBody.velocity = new Vector2(nudgeAmount, rigidBody.velocity.y);
         }
         if (Mathf.Abs(rigidBody.velocity.y) < 0.1f)
         {
-            rigidBody.velocity = new Vector2(rigidBody.velocity.x, 4);
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, nudgeAmount);
         }
     }
 

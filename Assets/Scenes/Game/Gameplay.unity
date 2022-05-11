@@ -637,7 +637,7 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 918e2533aa7ca48e6b4249a752e2a4d8, type: 3}
     SoundType: 
     Source: {fileID: 0}
-    Volume: 0.22
+    Volume: 1
     Pitch: 1
     Loop: 0
     maxVolume: 0
@@ -645,7 +645,7 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 06c384a0de5af4dfd8cfb305dc6a8cb3, type: 3}
     SoundType: 
     Source: {fileID: 0}
-    Volume: 0.22
+    Volume: 1
     Pitch: 1
     Loop: 0
     maxVolume: 0
@@ -3093,7 +3093,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 6
 --- !u!114 &1115386900
 MonoBehaviour:
@@ -3707,7 +3707,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.046932243}
+  m_Offset: {x: 0, y: 0.15}
   serializedVersion: 2
   m_Radius: 5.2402253
 --- !u!114 &1386810107
@@ -3722,6 +3722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb4444aff58ead4c839ef15b37cae54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nudgeAmount: 5
 --- !u!50 &1386810108
 Rigidbody2D:
   serializedVersion: 4
@@ -3742,7 +3743,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &1386810109
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3783,7 +3784,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 14d7f883b0d7a418bb0b3754de15a639, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 977ff6a32f037334a98f6838d01abc29, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
