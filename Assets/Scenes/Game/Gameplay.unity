@@ -1214,7 +1214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!225 &529097055
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2303,7 +2303,7 @@ MonoBehaviour:
   sharedProfile: {fileID: 11400000, guid: 3ef426a34e60fc4488e0a91411476b1f, type: 2}
   isGlobal: 1
   blendDistance: 0
-  weight: 0.834
+  weight: 0.857
   priority: 0
 --- !u!65 &854006826
 BoxCollider:
@@ -2509,8 +2509,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893135525}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: -5.1535425, z: 0}
-  m_LocalScale: {x: 19.6, y: 1, z: 1}
+  m_LocalPosition: {x: -1.0344, y: -4.94, z: 0}
+  m_LocalScale: {x: 0.97772217, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 805659615}
   m_RootOrder: 2
@@ -2561,18 +2561,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.029203415, y: -0.1480492}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 19.2, y: 0.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 18.404911, y: 0.7039016}
   m_EdgeRadius: 0
 --- !u!212 &893135530
 SpriteRenderer:
@@ -2614,8 +2614,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0.028244317, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 635979063efac4c509051a3a144b651d, type: 3}
+  m_Color: {r: 1, g: 0.5288749, b: 0.514151, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5548,7 +5548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!225 &1204114908225874561
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6290,7 +6290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &6599843743225960888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6682,7 +6682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7536709216202081500
 RectTransform:
   m_ObjectHideFlags: 0
