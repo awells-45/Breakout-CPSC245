@@ -10,6 +10,8 @@ TagManager:
   - Boundary
   - LeftBoundary
   - RightBoundary
+  - PaddleSides
+  - PaddleTop
   layers:
   - Default
   - TransparentFX
