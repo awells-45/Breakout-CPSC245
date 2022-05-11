@@ -11,6 +11,8 @@ public class Ball : MonoBehaviour
     private Vector3 startingVelocity = new Vector3(5, 5, 0);
     private Rigidbody2D rigidBody;
 
+    private bool playPaddleSound1 = true;
+
     private void Awake()
     {
         this.rigidBody = this.GetComponent<Rigidbody2D>();
@@ -35,12 +37,12 @@ public class Ball : MonoBehaviour
         rigidBody.velocity = startingVelocity;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D col)
     {
         CheckAndFixStuck();
     }
 
-    private void CheckAndFixStuck() // check if ball is stick moving horizontally or vertically, and give it a nudge if needed
+    private void CheckAndFixStuck() // check if ball is stuck moving horizontally or vertically, and give it a nudge if needed
     {
         if (Mathf.Abs(rigidBody.velocity.x) < 0.1f)
         {
@@ -54,6 +56,16 @@ public class Ball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (playPaddleSound1)
+        {
+            AudioManager.Instance.Play("PaddleHit1");
+        }
+        else
+        {
+            AudioManager.Instance.Play("PaddleHit2");
+        }
+        playPaddleSound1 = !playPaddleSound1;
+        
         if (col.gameObject.tag == "PaddleSides")
         {
             rigidBody.velocity = new Vector2(-1 * rigidBody.velocity.x, rigidBody.velocity.y);
