@@ -17,58 +17,25 @@ public class Paddle : MonoBehaviour
 
     private void OnEnable()
     {
-        playerInputs.Player.MovePaddleLeft.performed += OnLeftPress;
-        playerInputs.Player.MovePaddleLeft.canceled += OnLeftPress;
-        playerInputs.Player.MovePaddleRight.performed += OnRightPress;
-        playerInputs.Player.MovePaddleRight.canceled += OnRightPress;
-        
-        playerInputs.Player.MovePaddleLeft.Enable();
-        playerInputs.Player.MovePaddleRight.Enable();
-        
+        playerInputs.Player.MovePaddle.Enable();
+
         GameStateLoadLevel.LoadLevelStateBegin += ResetPaddle;
         Killzone.KillBallCollision += ResetPaddle;
     }
 
     private void OnDisable()
     {
-        playerInputs.Player.MovePaddleLeft.performed -= OnLeftPress;
-        playerInputs.Player.MovePaddleLeft.canceled -= OnLeftPress;
-        playerInputs.Player.MovePaddleRight.performed -= OnRightPress;
-        playerInputs.Player.MovePaddleRight.canceled -= OnRightPress;
-        
-        playerInputs.Player.MovePaddleLeft.Disable();
-        playerInputs.Player.MovePaddleRight.Disable();
-        
+        playerInputs.Player.MovePaddle.Disable();
+
         GameStateLoadLevel.LoadLevelStateBegin -= ResetPaddle;
         Killzone.KillBallCollision -= ResetPaddle;
     }
 
-    public void OnLeftPress(InputAction.CallbackContext callback) 
+    private void FixedUpdate()
     {
-        if (callback.canceled) {
-            this.rigidBody.velocity = Vector2.zero;
-        }
-        else if (callback.performed) {
-            if (!(this.transform.position.x <= -5.5)) // if paddle has reached left boundary
-            {
-                this.rigidBody.velocity -= new Vector2(moveSpeed, 0);
-            }
-        }
+        this.rigidBody.velocity = playerInputs.Player.MovePaddle.ReadValue<Vector2>() * moveSpeed;
     }
-
-    public void OnRightPress(InputAction.CallbackContext callback) 
-    {
-        if (callback.canceled) {
-            this.rigidBody.velocity = Vector2.zero;
-        }
-        else if (callback.performed) {
-            if (!(this.transform.position.x >= 5.5)) // if paddle has reached right boundary
-            {
-                this.rigidBody.velocity += new Vector2(moveSpeed, 0);
-            }
-        }
-    }
-
+    
     public void ResetPaddle() 
     {
         this.transform.position = new Vector3(0, -2.82f, 0);
