@@ -72,6 +72,7 @@ public class LevelLoadManager : MonoBehaviour
     public void LoadLevel()
     {
         Debug.Log(nextLevel);
+        AudioManager.Instance.Play("Victory");
         if (nextLevel >= levels.Length)
         {
             // nextLevel = 0;
