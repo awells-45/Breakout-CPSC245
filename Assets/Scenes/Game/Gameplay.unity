@@ -703,7 +703,7 @@ MonoBehaviour:
     Source: {fileID: 0}
     Volume: 1
     Pitch: 1
-    Loop: 0
+    Loop: 1
     maxVolume: 0
 --- !u!1 &197353602
 GameObject:
@@ -2413,6 +2413,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5001675642195461228, guid: cb52d91c495e2cd4cb5a30ec338e8a0a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001675642233462916, guid: cb52d91c495e2cd4cb5a30ec338e8a0a, type: 3}
+      propertyPath: nextLevel
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5001675642233462916, guid: cb52d91c495e2cd4cb5a30ec338e8a0a, type: 3}

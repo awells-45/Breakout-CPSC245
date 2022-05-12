@@ -99,7 +99,7 @@ public class LevelLoadManager : MonoBehaviour
                 break;
             default:
                 // should never be hit
-                Debug.LogError("Level loading is not 0-4 in index");
+                //Debug.LogError("Level loading is not 0-4 in index");
                 break;
         }
 
