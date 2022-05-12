@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private CanvasGroup loseScreenGroup;
     [SerializeField] private CanvasGroup winScreenGroup;
     [SerializeField] private CanvasGroup playingScreenGroup;
+    [SerializeField] private CanvasGroup instructionsGroup;
 
     private void OnEnable()
     {
@@ -60,6 +61,19 @@ public class MenuManager : MonoBehaviour
         Hide(pauseMenuGroup);
         Hide(winScreenGroup);
         Hide(loseScreenGroup);
+        Hide(instructionsGroup);
+    }
+
+    public void ShowInstructions()
+    {
+        Hide(mainMenuGroup);
+        Show(instructionsGroup);
+    }
+
+    public void HideInstructions()
+    {
+        Hide(instructionsGroup);
+        Show(mainMenuGroup);
     }
 
     private void HideMainMenu()

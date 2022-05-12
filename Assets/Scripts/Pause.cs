@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class Pause : MonoBehaviour
 {
     public PlayerInputActions playerInputs;
+    public GameManager gameManager;
 
     public delegate void EnterPauseState(State pauseState);
 
@@ -30,6 +31,11 @@ public class Pause : MonoBehaviour
 
     public void PauseGame(InputAction.CallbackContext callback)
     {
+        if (gameManager.IsMainMenu())
+        {
+            return;
+        }
+        
         if (isPaused)
         {
             if (OnPause != null)

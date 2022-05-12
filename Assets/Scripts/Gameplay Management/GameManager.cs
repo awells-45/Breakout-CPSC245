@@ -86,6 +86,12 @@ public class GameManager : MonoBehaviour
         Pause.OnPause -= ChangeToNewState;
     }
 
+    // Returns current state
+    public bool IsMainMenu()
+    {
+        return currentState == MainMenuState;
+    }
+
     // Method that takes in an enum relaying to each state, checks the enum, and changes to the current state
     private void ChangeToNewState(State newState)
     {
