@@ -23,6 +23,11 @@ public class Ball : MonoBehaviour
         playerInputs = new PlayerInputActions();
     }
 
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void LaunchBall(InputAction.CallbackContext callback)
     {
         //NOTE: This is a temporary solution. This fixes a bug where you can continuously press space to reset the ball's velocity
@@ -106,6 +111,7 @@ public class Ball : MonoBehaviour
         playerInputs.Player.LaunchBall.performed += LaunchBall;
 
         playerInputs.Player.LaunchBall.Enable();
+        GameStateLoadLevel.LoadLevelStateBegin += ShowBall;
     }
 
     private void OnDisable()
@@ -113,8 +119,20 @@ public class Ball : MonoBehaviour
         GameStateLoadLevel.LoadLevelStateBegin -= KillBall;
         Killzone.KillBallCollision -= KillBall;
         playerInputs.Player.LaunchBall.performed -= LaunchBall;
+        GameStateMainMenu.MainMenuStateBegin -= HideBall;
 
         playerInputs.Player.LaunchBall.Disable();
+    }
+
+    private void ShowBall()
+    {
+        this.gameObject.SetActive(true);
+        ResetBall();
+    }
+
+    private void HideBall()
+    {
+        this.gameObject.SetActive(false);
     }
 
     public void KillBall()

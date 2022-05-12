@@ -2,6 +2,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class Sound {
+    // Attributes that are relevant to each sound
     public string Name;
 
     public AudioClip Clip;

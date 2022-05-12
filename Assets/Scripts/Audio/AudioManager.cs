@@ -12,12 +12,6 @@ public class AudioManager : MonoBehaviour {
     public float soundeffectsCurrentVolume = 1f;
     public Sound[] Sounds;
 
-    private void OnEnable() {
-    }
-
-    private void OnDisable() {
-    }
-
     void Awake() {
         instance = this;
 
@@ -32,7 +26,6 @@ public class AudioManager : MonoBehaviour {
     }
 
     // Plays the sound corresponding to the inputted argument
-    
     public void Play(string name) {
             print(name);
             Sound sound = Array.Find(Sounds, sound => sound.Name == name);
@@ -52,10 +45,13 @@ public class AudioManager : MonoBehaviour {
             sound.Source.Play();
     }
     
+    // Sets the volume of the corresponding clip to the corresponding volume
     public void SetVolume(string trackName, float volume)
     {
+        // Get the track
         Sound track = Array.Find(Sounds, sound => sound.Name == trackName);
 
+        // Check to see if that track actually exists
         if (track == null)
         {
             Debug.LogWarning("Sound: " + trackName + " not found!");
