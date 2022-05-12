@@ -17,17 +17,20 @@ public class Ball : MonoBehaviour
     private bool playPaddleSound1 = true;
     public float ballHitPositionMultiplier = 4.0f;
 
+    //Sets up components for later use
     private void Awake()
     {
         this.rigidBody = this.GetComponent<Rigidbody2D>();
         playerInputs = new PlayerInputActions();
     }
 
+    //Sets this gameobject inactive
     private void Start()
     {
         gameObject.SetActive(false);
     }
 
+    //Launches the ball with a random velocity
     public void LaunchBall(InputAction.CallbackContext callback)
     {
         //NOTE: This is a temporary solution. This fixes a bug where you can continuously press space to reset the ball's velocity
