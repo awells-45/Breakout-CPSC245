@@ -8,7 +8,7 @@ public class Ball : MonoBehaviour
     public PlayerInputActions playerInputs;
 
     public float nudgeAmount = 5;
-    
+
     private float startingBallSpeed = 6.5f;
 
     private Vector3 startingVelocity = new Vector3(5, 5, 0);
@@ -48,6 +48,11 @@ public class Ball : MonoBehaviour
 
     private void CheckAndFixStuck() // check if ball is stuck moving horizontally or vertically, and give it a nudge if needed
     {
+        if (rigidBody.velocity == Vector2.zero)
+        {
+            return;
+        }
+
         if (Mathf.Abs(rigidBody.velocity.x) < 0.1f)
         {
             rigidBody.velocity = new Vector2(nudgeAmount, rigidBody.velocity.y);
@@ -69,7 +74,7 @@ public class Ball : MonoBehaviour
             AudioManager.Instance.Play("PaddleHit2");
         }
         playPaddleSound1 = !playPaddleSound1;
-        
+
         if (col.gameObject.tag == "PaddleSides")
         {
             rigidBody.velocity = new Vector2(-1.0f * rigidBody.velocity.x, rigidBody.velocity.y);
