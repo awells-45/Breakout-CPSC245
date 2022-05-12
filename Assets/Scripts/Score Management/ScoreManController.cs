@@ -5,43 +5,35 @@ using UnityEngine;
 
 public class ScoreManController : MonoBehaviour
 {
-    //SCORE MAN CONTROLLER, THIS CALLS THE METHODS NEEDED INI SCORE MAN MOD
+    /*This is the controller of the MVC that contains score and lives for the game
+     *This subs and unsubs to events that then call methods in model
+     *
+     * SCORE MAN CONTROLLER, THIS CALLS THE METHODS NEEDED IN SCORE MAN MOD
+     */
     private ScoreManModel scoreManMod;
 
-    //This needs to be called at level start. Either through event or manual call
+    //This needs to be called at game start
     public void InitOnGameStart()
     {
         scoreManMod.initData();
     }
 
-    public void ChangeScore()//makeshift method that links to button and increases score
-    {
-        scoreManMod.IncreaseScore();
-    }
-
-    public void ChangeLives()//makeshift method that links to button and decrements lives
-    {
-        scoreManMod.LoseLife();
-    }
-    //ChangeScore is a placeholder event name called fr Brick, ChangeLives is a placeholder event name called from Ball
-
-    // THIS NEEDS TO PROPELY WORK AND CALLL RESPECTIVE METHODS WHEN IMPLEMENTED BASED ON PUB SUB
+    //On Awake init's data and gets model script
     private void Awake()
     {
         scoreManMod = GetComponent<ScoreManModel>();
-        print("Init Data Called");
-        // Ball.ChangeLives += scoreManMod.LoseLife;
+        //print("Init Data Called");
         scoreManMod.initData();
     }
 
-    private void OnEnable()
+    private void OnEnable() //subscribes to all events from diffrent scripts.
     {
         GameStateMainMenu.MainMenuStateBegin += scoreManMod.ResetScore;
         Killzone.KillBallCollision += scoreManMod.LoseLife;
         Brick.ChangeScoreEvent += scoreManMod.IncreaseScore;
     }
 
-    private void OnDisable()
+    private void OnDisable()//unsubscribes to all events 
     {
         GameStateMainMenu.MainMenuStateBegin -= scoreManMod.ResetScore;
         Killzone.KillBallCollision -= scoreManMod.LoseLife;

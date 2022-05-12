@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class ScoreManModel : MonoBehaviour
 {
-    /*STILL TO DO::
-     * Need to implement Event braodcast when game is lost. Implementing Controller actually getting called by Outside events
-     * Kinda need to combine this to actually do both of these
+    /*This is the model of the MVC that contains score and lives for the game
+     * The model updates and changes all of the score and lives data. This then updates view
+     * SCORE MAN MODEL, THIS STORES LIVES AND SCORED AND CHANGES BASED ON THAT
      */
-    //SCORE MAN MODEL, THIS STORES LIVES AND SCORED AND CHANGES BASED ON THAT
     private ScoreManView ScoreManView;
 
     public delegate void GameOver(State NewState);
@@ -19,10 +18,11 @@ public class ScoreManModel : MonoBehaviour
     private float DefaultIncreaseAmount = 10.0f;
     private float ScoreMultiplier = 1.0f;
 
-    private int StartingBallLives = 3;
+    private int StartingBallLives = 3; //Starting lives, this is also what gets restarted to.
+                                       //Change this if you want to increase or decrease difficulty
     private int BallLives = 0;
 
-    public void Awake()
+    public void Awake()//gets the view script
     {
         ScoreManView = GetComponent<ScoreManView>();
     }
@@ -37,7 +37,7 @@ public class ScoreManModel : MonoBehaviour
     }
 
     public void IncreaseScore()
-    { //called from controller
+    { //called from controller increases score and increases the multiplier
         Score = Score + DefaultIncreaseAmount * ScoreMultiplier;
         ScoreMultiplier = ScoreMultiplier + .1f;
         ScoreManView.UpdateScoreText(Score.ToString());
@@ -53,7 +53,7 @@ public class ScoreManModel : MonoBehaviour
         ScoreManView.UpdateLivesText(BallLives.ToString());
     }
     public void LoseLife()
-    { //called from controller
+    { //called from controller resets score multiplier and decrements lives
         BallLives = BallLives - 1;
         ScoreMultiplier = 1.0f;
         if (BallLives == 0)
@@ -67,10 +67,7 @@ public class ScoreManModel : MonoBehaviour
             {
                 print("Nothing is subscribed to Game Over Event In Score Model");
             }
-            //ResetScore(); theroretically if the game always goes to main menu when losing then reset
-            //"SHOULD" get called from event
         }
         ScoreManView.UpdateLivesText(BallLives.ToString());
     }
-
 }
