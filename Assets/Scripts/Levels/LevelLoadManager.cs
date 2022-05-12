@@ -15,7 +15,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 public class LevelLoadManager : MonoBehaviour
 {
@@ -37,6 +40,8 @@ public class LevelLoadManager : MonoBehaviour
     public Level[] levels;
     public int nextLevel = 0;
     public ObjectPool objectPool;
+    public SpriteRenderer Levelbackground;
+    public Sprite TestImage;
     public delegate void LoadLevelCompleted(State NewState);
     public static event LoadLevelCompleted OnLevelLoad;
     public static event LoadLevelCompleted OnAllLevelscComplete;
@@ -115,7 +120,7 @@ public class LevelLoadManager : MonoBehaviour
             return;
         }
         Level level = levels[nextLevel];
-
+        Levelbackground.sprite = level.Background;
 
         Debug.Log(objectPool);
         objectPool.PlaceBricks(getBrickLocations(level), getBrickSprites(level));

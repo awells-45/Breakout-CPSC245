@@ -2790,9 +2790,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5001675642233462916, guid: cb52d91c495e2cd4cb5a30ec338e8a0a, type: 3}
+      propertyPath: TestImage
+      value: 
+      objectReference: {fileID: 21300000, guid: ad0ccf3543f34d94aa17ad7f58818d21, type: 3}
+    - target: {fileID: 5001675642233462916, guid: cb52d91c495e2cd4cb5a30ec338e8a0a, type: 3}
       propertyPath: nextLevel
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5001675642233462916, guid: cb52d91c495e2cd4cb5a30ec338e8a0a, type: 3}
+      propertyPath: Levelbackground
+      value: 
+      objectReference: {fileID: 47664608}
     - target: {fileID: 5001675642233462916, guid: cb52d91c495e2cd4cb5a30ec338e8a0a, type: 3}
       propertyPath: levels.Array.size
       value: 5

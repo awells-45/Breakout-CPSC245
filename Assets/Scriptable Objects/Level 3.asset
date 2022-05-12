@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level 3
   m_EditorClassIdentifier: 
   LevelSoundtrack: {fileID: 0}
+  Background: {fileID: 21300000, guid: c180221f378c9f54aa7b32fbe71413b2, type: 3}
   bricks:
   - brickTransform: {x: -4, y: 3.5}
     brickSprite: {fileID: 21300000, guid: c475bbc7cd70e934a898ccd6def4d6f6, type: 3}
