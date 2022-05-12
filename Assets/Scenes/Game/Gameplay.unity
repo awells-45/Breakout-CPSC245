@@ -629,7 +629,7 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 4c939c1fa19124a298e957681ec43197, type: 3}
     SoundType: 
     Source: {fileID: 0}
-    Volume: 0.221
+    Volume: 1
     Pitch: 1
     Loop: 0
     maxVolume: 0
@@ -704,6 +704,14 @@ MonoBehaviour:
     Volume: 1
     Pitch: 1
     Loop: 1
+    maxVolume: 0
+  - Name: PaddleHitWall
+    Clip: {fileID: 8300000, guid: beb6914f817a1410ea2bf8e554b8277a, type: 3}
+    SoundType: Music
+    Source: {fileID: 0}
+    Volume: 1
+    Pitch: 1
+    Loop: 0
     maxVolume: 0
 --- !u!1 &197353602
 GameObject:
@@ -1028,7 +1036,7 @@ GameObject:
   - component: {fileID: 378355106}
   m_Layer: 0
   m_Name: Wall Right
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1167,6 +1175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 485504007}
   - component: {fileID: 485504008}
+  - component: {fileID: 485504009}
   m_Layer: 0
   m_Name: Top
   m_TagString: PaddleTop
@@ -1195,13 +1204,13 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485504006}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.014050484, y: 0.70918095}
+  m_Offset: {x: 0.0002734661, y: 0.13}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1212,8 +1221,30 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 13.19902, y: 0.09878874}
+  m_Size: {x: 12.933647, y: 0.09878874}
   m_EdgeRadius: 0
+--- !u!68 &485504009
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485504006}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.18}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -6, y: 0}
+  - {x: 6, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &529097054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,7 +1650,7 @@ GameObject:
   - component: {fileID: 658400212}
   m_Layer: 0
   m_Name: Wall Left
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2109,7 +2140,7 @@ GameObject:
   - component: {fileID: 811583310}
   m_Layer: 0
   m_Name: Wall Top
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2663,7 +2694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &929029129
 Transform:
   m_ObjectHideFlags: 0
@@ -3194,7 +3225,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 98e8844619bf244feac1c39cf6ce13d3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f2a1fd5f520bd5048804ece6cd586ebe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3743,6 +3774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nudgeAmount: 5
+  ballHitPositionMultiplier: 4
 --- !u!50 &1386810108
 Rigidbody2D:
   serializedVersion: 4
@@ -3985,7 +4017,7 @@ GameObject:
   - component: {fileID: 1555137001}
   m_Layer: 0
   m_Name: TopRightCorner
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5186,7 +5218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1909136808
 Transform:
   m_ObjectHideFlags: 0
@@ -5345,7 +5377,7 @@ GameObject:
   - component: {fileID: 1964305705}
   m_Layer: 0
   m_Name: TopLeftCorner
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

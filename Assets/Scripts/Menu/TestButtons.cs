@@ -17,6 +17,7 @@ public class TestButtons : MonoBehaviour
     //All the methods mimic the OnStateEnter() and OnStateExit() methods that invoke the events in each GameState class
     public void OnClickPlay()
     {
+        AudioManager.Instance.Play("ButtonPress");
         // Play screen is the base layer under all the other canvas groups
         // To play just hide the main menu
         if (MainMenuEnd != null)
@@ -28,6 +29,7 @@ public class TestButtons : MonoBehaviour
     // Invokes PauseMenuStart event and shows the pause menu canvas group
     public void OnClickPause()
     {
+        AudioManager.Instance.Play("ButtonPress");
         if (PauseMenuStart != null)
         {
             PauseMenuStart(State.Pause);
@@ -37,6 +39,7 @@ public class TestButtons : MonoBehaviour
     // Invokes PauseMenuEnd event and hides the pause menu canvas group
     public void OnClickResume()
     {
+        AudioManager.Instance.Play("ButtonPress");
         if (PauseMenuEnd != null)
         {
             PauseMenuEnd(State.Playing);
@@ -46,6 +49,7 @@ public class TestButtons : MonoBehaviour
     // Invokes MainMenuStart event and hides the main menu canvas group
     public void OnClickMainMenu()
     {
+        AudioManager.Instance.Play("ButtonPress");
         if (MainMenuStart != null)
         {
             MainMenuStart(State.MainMenu);
@@ -56,6 +60,7 @@ public class TestButtons : MonoBehaviour
     // Invokes end events for any screen that may already be up upon clicking a MainMenu button
     public void OnClickReturn()
     {
+        AudioManager.Instance.Play("ButtonPress");
         if (MainMenuStart != null)
         {
             // LoseScreenEnd(State.MainMenu);
@@ -68,6 +73,7 @@ public class TestButtons : MonoBehaviour
     // Invokes LoseScreenStart event and shows the lose screen canvas group
     public void OnClickLose()
     {
+        AudioManager.Instance.Play("ButtonPress");
         if (LoseScreenStart != null)
         {
             LoseScreenStart(State.Lost);
@@ -77,6 +83,7 @@ public class TestButtons : MonoBehaviour
     // Invokes WinScreenStart event and shows the win screen canvas group
     public void OnClickWin()
     {
+        AudioManager.Instance.Play("ButtonPress");
         if (WinScreenStart != null)
         {
             WinScreenStart(State.Won);

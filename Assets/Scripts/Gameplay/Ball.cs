@@ -44,6 +44,10 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        if (col.gameObject.tag == "Boundary")
+        {
+            AudioManager.Instance.Play("PaddleHitWall");
+        }
         CheckAndFixStuck();
     }
 
