@@ -689,6 +689,14 @@ MonoBehaviour:
     Pitch: 1
     Loop: 1
     maxVolume: 0
+  - Name: Victory
+    Clip: {fileID: 8300000, guid: 32083a46d1ee24799b7a7f75dcebf788, type: 3}
+    SoundType: 
+    Source: {fileID: 0}
+    Volume: 0.22
+    Pitch: 1
+    Loop: 0
+    maxVolume: 0
 --- !u!1 &197353602
 GameObject:
   m_ObjectHideFlags: 0
