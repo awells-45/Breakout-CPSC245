@@ -7,7 +7,7 @@ public class VideoController : MonoBehaviour
     public GameObject VideoElement;
 
 
-    public void Start()
+    public void Awake()
     {
         StartCoroutine(WaitForIntro());
     }
