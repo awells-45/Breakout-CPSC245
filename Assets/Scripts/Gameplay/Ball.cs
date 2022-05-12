@@ -15,6 +15,7 @@ public class Ball : MonoBehaviour
     private Rigidbody2D rigidBody;
 
     private bool playPaddleSound1 = true;
+    public float ballHitPositionMultiplier = 4.0f;
 
     private void Awake()
     {
@@ -81,6 +82,11 @@ public class Ball : MonoBehaviour
         }
         else if (col.gameObject.tag == "PaddleTop")
         {
+            float difference = transform.position.x - col.transform.position.x;
+            Debug.Log(difference);
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x + difference * ballHitPositionMultiplier, -3.0f);
+            rigidBody.velocity = rigidBody.velocity.normalized * startingBallSpeed;
+
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, -1.0f * rigidBody.velocity.y);
         }
         else if (col.gameObject.tag == "PaddleDiag")
@@ -152,4 +158,5 @@ public class Ball : MonoBehaviour
             return false;
         }
     }
+
 }
