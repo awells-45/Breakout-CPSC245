@@ -26,6 +26,7 @@ public class Ball : MonoBehaviour
     {
         //NOTE: This is a temporary solution. This fixes a bug where you can continuously press space to reset the ball's velocity
         // if (this.GetComponent<Rigidbody2D>().velocity > 0.01f)
+        print("BALL LAUNCHED");
         if (Mathf.Abs(rigidBody.velocity.x) + Mathf.Abs(rigidBody.velocity.y) > 0.01f)
         {
             return;

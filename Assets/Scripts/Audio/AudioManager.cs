@@ -26,7 +26,6 @@ public class AudioManager : MonoBehaviour {
             sound.Source = gameObject.AddComponent<AudioSource>();
             sound.Source.clip = sound.Clip;
             sound.Source.volume = sound.Volume;
-            // sound.Source.volume = sound.maxVolume; HOW DOES THIS LINE MAX SENSE GIVEN THE ONE ABOVE IT!?!?!?
             sound.Source.pitch = sound.Pitch;
             sound.Source.loop = sound.Loop;
         }
@@ -51,28 +50,46 @@ public class AudioManager : MonoBehaviour {
 
             // sound.Source.volume = volume;
             sound.Source.Play();
+    }
+    
+    public void SetVolume(string trackName, float volume)
+    {
+        Sound track = Array.Find(Sounds, sound => sound.Name == trackName);
+
+        if (track == null)
+        {
+            Debug.LogWarning("Sound: " + trackName + " not found!");
+            return;
         }
-        
-        public void Pause(string type) {
-            Sound[] sounds = Array.FindAll(Sounds, sound => sound.SoundType == type);
 
-            foreach (Sound sound in sounds) {
-                if (sound == null) {
-                    Debug.LogWarning("Sound: " + sound.Name + " not found! Cannot play!");
-                    continue;
-                }
+        track.Source.volume = volume;
+    }
 
-                if (!sound.Source.isPlaying) {
-                    continue;
-                }
+    public void Pause(string type)
+    {
+        Sound[] sounds = Array.FindAll(Sounds, sound => sound.SoundType == type);
 
-                if (sound.Source.isPlaying) {
-                    sound.Source.Pause();
-                }
+        foreach (Sound sound in sounds)
+        {
+            if (sound == null)
+            {
+                Debug.LogWarning("Sound: " + sound.Name + " not found! Cannot play!");
+                continue;
+            }
+
+            if (!sound.Source.isPlaying)
+            {
+                continue;
+            }
+
+            if (sound.Source.isPlaying)
+            {
+                sound.Source.Pause();
             }
         }
-        
-        public void ChangeVolume(string soundType, float newVolume) {
+    }
+
+    public void ChangeVolume(string soundType, float newVolume) {
             foreach (Sound sound in Sounds) {
                 if (sound.SoundType == soundType) {
                     if (sound.SoundType == "Music") {
@@ -127,7 +144,7 @@ public class AudioManager : MonoBehaviour {
             }
         }
 
-        protected void FadeTracks(string track1Name, string track2Name) {
+        public void FadeTracks(string track1Name, string track2Name) {
             Sound sound1 = Array.Find(Sounds, sound => sound.Name == track1Name);
             Sound sound2 = Array.Find(Sounds, sound => sound.Name == track2Name);
 

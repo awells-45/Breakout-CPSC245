@@ -72,12 +72,43 @@ public class LevelLoadManager : MonoBehaviour
     public void LoadLevel()
     {
         Debug.Log(nextLevel);
-        AudioManager.Instance.Play("Victory");
+        switch (nextLevel)
+        {
+            case 0:
+                // Do nothing
+                break;
+            case 1:
+                AudioManager.Instance.Play("Victory");
+                // AudioManager.Instance.Stop("Music");
+                // AudioManager.Instance.Play("MenuMainDrums");
+                AudioManager.Instance.SetVolume("MenuMainNoDrums", 0.0f);
+                AudioManager.Instance.SetVolume("MenuMainDrums", 1.0f);
+                break;
+            case 2:
+                AudioManager.Instance.Play("Victory");
+                break;
+            case 3:
+                AudioManager.Instance.Play("Victory");
+                //AudioManager.Instance.Stop("Music");
+                //AudioManager.Instance.Play("LaterLevels");
+                AudioManager.Instance.SetVolume("MenuMainDrums", 0.0f);
+                AudioManager.Instance.SetVolume("LaterLevels", 1.0f);
+                break;
+            case 4:
+                AudioManager.Instance.Play("Victory");
+                break;
+            default:
+                // should never be hit
+                Debug.LogError("Level loading is not 0-4 in index");
+                break;
+        }
+
         if (nextLevel >= levels.Length)
         {
             // nextLevel = 0;
             if (OnAllLevelscComplete != null)
             {
+                AudioManager.Instance.Play("Victory");
                 nextLevel = 0;
                 OnAllLevelscComplete(State.Won);
             }

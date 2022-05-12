@@ -651,41 +651,41 @@ MonoBehaviour:
     maxVolume: 0
   - Name: MenuIntroNoDrums
     Clip: {fileID: 8300000, guid: 240f65ba485fc47cfb66fdf7931e9df9, type: 3}
-    SoundType: 
+    SoundType: Music
     Source: {fileID: 0}
-    Volume: 0.22
+    Volume: 1
     Pitch: 1
     Loop: 0
     maxVolume: 0
   - Name: MenuIntroDrums
     Clip: {fileID: 8300000, guid: 771f60bd52e424a03acdef87618701fc, type: 3}
-    SoundType: 
+    SoundType: Music
     Source: {fileID: 0}
-    Volume: 0.22
+    Volume: 1
     Pitch: 1
     Loop: 1
     maxVolume: 0
   - Name: MenuMainDrumsOnly
     Clip: {fileID: 8300000, guid: f507aa922cc2549cd90b11d6ba26aa1f, type: 3}
-    SoundType: 
+    SoundType: Music
     Source: {fileID: 0}
-    Volume: 0.22
+    Volume: 1
     Pitch: 1
     Loop: 1
     maxVolume: 0
   - Name: MenuMainNoDrums
     Clip: {fileID: 8300000, guid: 9430ae0bf14be4d0195df0ea1ef1398d, type: 3}
-    SoundType: 
+    SoundType: Music
     Source: {fileID: 0}
-    Volume: 0.22
+    Volume: 1
     Pitch: 1
     Loop: 1
     maxVolume: 0
   - Name: MenuMainDrums
     Clip: {fileID: 8300000, guid: eecbb8f31774b4c7495bdd47207c0825, type: 3}
-    SoundType: 
+    SoundType: Music
     Source: {fileID: 0}
-    Volume: 0.22
+    Volume: 1
     Pitch: 1
     Loop: 1
     maxVolume: 0
@@ -693,7 +693,15 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 32083a46d1ee24799b7a7f75dcebf788, type: 3}
     SoundType: 
     Source: {fileID: 0}
-    Volume: 0.22
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    maxVolume: 0
+  - Name: LaterLevels
+    Clip: {fileID: 8300000, guid: 888af9b36658cb04fba0751616b170a2, type: 3}
+    SoundType: Music
+    Source: {fileID: 0}
+    Volume: 1
     Pitch: 1
     Loop: 0
     maxVolume: 0

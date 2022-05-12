@@ -33,6 +33,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         currentState.OnStateEntered();
+        AudioManager.Instance.Play("MenuMainNoDrums");
+        AudioManager.Instance.Play("MenuMainDrums");
+        AudioManager.Instance.Play("LaterLevels");
+        
+        AudioManager.Instance.SetVolume("MenuMainDrums", 0.0f);
+        AudioManager.Instance.SetVolume("LaterLevels", 0.0f);
     }
 
     // Contains the subscriptions to events that will cause state transitions, Ex: PlayButtonIsPressed in MainMenu
@@ -87,6 +93,8 @@ public class GameManager : MonoBehaviour
         currentState.OnStateExited();
         
         Time.timeScale = 0.0f; // freeze the game
+        
+        
 
         // Switch statement to check the enum
         switch (newState)
@@ -121,6 +129,10 @@ public class GameManager : MonoBehaviour
             case State.MainMenu:
                 Debug.Log("Enter main menu state");
                 currentState = MainMenuState;
+                // Play the main menu song
+                AudioManager.Instance.SetVolume("MenuMainNoDrums", 1.0f);
+                AudioManager.Instance.SetVolume("MenuMainDrums", 0.0f);
+                AudioManager.Instance.SetVolume("LaterLevels", 0.0f);
                 break;
             // Should never occur, but if reaches default log an error
             default:
