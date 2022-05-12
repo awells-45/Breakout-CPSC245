@@ -35,17 +35,17 @@ MonoBehaviour:
   - brickTransform: {x: 1.65, y: 4}
     brickSprite: {fileID: 21300000, guid: faf461a87d0b1344c8ba6182ff12c651, type: 3}
   - brickTransform: {x: -1.65, y: 3}
-    brickSprite: {fileID: 21300000, guid: e028ea39ef0cf3b41a4da13219d84982, type: 3}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
   - brickTransform: {x: 1.65, y: 3}
-    brickSprite: {fileID: 21300000, guid: e028ea39ef0cf3b41a4da13219d84982, type: 3}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
   - brickTransform: {x: -1.65, y: 2.5}
-    brickSprite: {fileID: 21300000, guid: e028ea39ef0cf3b41a4da13219d84982, type: 3}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
   - brickTransform: {x: 1.65, y: 2.5}
-    brickSprite: {fileID: 21300000, guid: e028ea39ef0cf3b41a4da13219d84982, type: 3}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
   - brickTransform: {x: -1.65, y: 3.5}
-    brickSprite: {fileID: 21300000, guid: e028ea39ef0cf3b41a4da13219d84982, type: 3}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
   - brickTransform: {x: 1.65, y: 3.5}
-    brickSprite: {fileID: 21300000, guid: e028ea39ef0cf3b41a4da13219d84982, type: 3}
+    brickSprite: {fileID: 21300000, guid: 7e86fad213065a446bd519499a08f581, type: 3}
   - brickTransform: {x: -2.5, y: 3.5}
     brickSprite: {fileID: 21300000, guid: faf461a87d0b1344c8ba6182ff12c651, type: 3}
   - brickTransform: {x: 2.5, y: 3.5}
