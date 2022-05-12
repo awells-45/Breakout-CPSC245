@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         currentState.OnStateEntered();
-        AudioManager.Instance.Play("MenuMainNoDrums");
+        //AudioManager.Instance.Play("MenuMainNoDrums");
         //AudioManager.Instance.Play("MenuMainDrums");
         //AudioManager.Instance.Play("LaterLevels");
         

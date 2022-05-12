@@ -15,6 +15,7 @@ public class VideoController : MonoBehaviour
 IEnumerator WaitForIntro()
     {
         yield return new WaitForSeconds(5.0f);
+        AudioManager.Instance.Play("MenuMainNoDrums");
         Destroy(VideoElement);        
     }
 
